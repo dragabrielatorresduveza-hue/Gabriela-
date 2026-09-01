@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mundo Guaraci 3D — Caminho do SUS</title>
+  <meta name="description" content="Visualização interativa do projeto Caminho do SUS em Guaraci — linha de base e próximos 90 dias." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">G</span>
+      <div><strong>Mundo Guaraci 3D</strong><small>Caminho do SUS · 90 dias</small></div>
+    </div>
+    <nav>
+      <button data-go="inicio" class="active">Início</button>
+      <button data-go="mundo">Mundo 3D</button>
+      <button data-go="jornada">Jornada</button>
+      <button data-go="gestao">Gestão</button>
+      <button data-go="noventa">90 dias</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="scene hero">
+      <div class="hero-copy">
+        <span class="kicker">GUARACI · HOJE → 90 DIAS</span>
+        <h1>O paciente não precisa conhecer o caminho do SUS.</h1>
+        <p class="lead">A rede precisa conhecer o caminho do paciente.</p>
+        <div class="actions">
+          <button class="primary" data-go="mundo">Entrar no Mundo Guaraci</button>
+          <button class="ghost" data-go="jornada">Acompanhar o paciente</button>
+        </div>
+        <div class="flowline"><span>Organizar</span><i>→</i><span>Integrar</span><i>→</i><span>Resolver</span><i>→</i><span>Medir</span><i>→</i><span>Melhorar</span></div>
+      </div>
+      <div class="hero-orbit" aria-label="Rede municipal de saúde">
+        <div class="orbit o1"></div><div class="orbit o2"></div>
+        <div class="core">PACIENTE</div>
+        <span class="sat s1">APS</span><span class="sat s2">UCI</span><span class="sat s3">URGÊNCIA</span><span class="sat s4">REGULAÇÃO</span><span class="sat s5">FARMÁCIA</span><span class="sat s6">LAB</span>
+      </div>
+    </section>
+
+    <section id="mundo" class="scene dark">
+      <div class="section-head">
+        <span class="kicker">VISUALIZAÇÃO 3D CONCEITUAL</span>
+        <h2>Guaraci Hoje</h2>
+        <p>Clique nos setores e veja onde estão os principais gargalos e o que deve mudar nos próximos 90 dias.</p>
+      </div>
+      <div class="modebar">
+        <button data-mode="today" class="active">Hoje</button>
+        <button data-mode="future">Daqui 90 dias</button>
+        <button id="animatePatient">▶ Animar paciente</button>
+      </div>
+      <div class="world-grid">
+        <div class="stage">
+          <div class="ground"></div>
+          <button class="sector aps active" data-sector="aps"><b>APS / ESF</b><small>acolhimento · cuidado · retorno</small></button>
+          <button class="sector gestao" data-sector="gestao"><b>Gestão</b><small>Secretaria Municipal de Saúde</small></button>
+          <button class="sector apoio" data-sector="apoio"><b>Farmácia · Lab · Regulação</b><small>acesso · fila · resultado</small></button>
+          <button class="sector uci" data-sector="uci"><b>UCI / Especialistas</b><small>resolutividade municipal</small></button>
+          <button class="sector urg" data-sector="urg"><b>Urgência / Emergência</b><small>fluxo separado · cobertura segura</small></button>
+          <div class="route r1"></div><div class="route r2"></div><div class="route r3"></div>
+          <div class="patient" aria-label="Paciente"></div>
+        </div>
+        <aside class="panel" aria-live="polite">
+          <span class="pill" id="sectorPill">PRIORIDADE · APS</span>
+          <h3 id="sectorTitle">APS / ESF</h3>
+          <p id="sectorText">Hoje ainda precisamos conectar consulta, exames, tratamento, UCI, Regulação e retorno como um único cuidado.</p>
+          <div class="issue"><strong id="problemTitle">Problema observado</strong><span id="problemText">Encaminhamentos podem acontecer antes de a APS esgotar ou documentar os recursos municipais disponíveis.</span></div>
+          <div class="issue"><strong id="targetTitle">Mudança esperada</strong><span id="targetText">APS coordenando o cuidado e recebendo de volta a informação de cada etapa.</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="jornada" class="scene">
+      <div class="section-head">
+        <span class="kicker">JORNADA DO PACIENTE</span>
+        <h2>O caminho deve ser da rede — não do paciente.</h2>
+      </div>
+      <div class="journey">
+        <div class="step"><b>1 · Entrada</b><small>Acolhimento</small></div><span>→</span>
+        <div class="step"><b>2 · APS</b><small>Investigar · tratar · acompanhar</small></div><span>→</span>
+        <div class="step"><b>3 · Rede municipal</b><small>Farmácia · Laboratório · eMulti</small></div><span>→</span>
+        <div class="step"><b>4 · UCI</b><small>Especialistas em Guaraci</small></div><span>→</span>
+        <div class="step"><b>5 · Regulação</b><small>Quando realmente necessário</small></div><span>→</span>
+        <div class="step"><b>6 · Retorno</b><small>Contrarreferência → APS</small></div>
+      </div>
+      <div class="callout"><strong>Resolutividade ≠ não encaminhar.</strong><span>Resolutividade é oferecer o cuidado certo, no lugar certo, e encaminhar adequadamente quando a necessidade ultrapassa a capacidade municipal.</span></div>
+    </section>
+
+    <section id="gestao" class="scene dark">
+      <div class="section-head">
+        <span class="kicker">LINHA DE BASE · AGOSTO/2026</span>
+        <h2>O que já conseguimos enxergar.</h2>
+      </div>
+      <div class="metrics">
+        <article><span>ATENDIMENTOS</span><strong>270</strong></article>
+        <article><span>REGISTROS EM EXAMES</span><strong>95</strong></article>
+        <article><span>NÃO COMPARECIMENTOS</span><strong>66</strong></article>
+        <article><span>CADASTRO DOMICILIAR/TERRITORIAL</span><strong>2.988</strong></article>
+      </div>
+      <div class="priorities">
+        <article><b>1 · Plantão</b><p>Cobertura, substituição, comunicação de ausência e passagem de responsabilidade.</p></article>
+        <article><b>2 · UCI → APS</b><p>Transformar devoluções em aprendizado e medir resolutividade.</p></article>
+        <article><b>3 · Estrutura</b><p>Separar fluxos de APS, Gestão, Apoio e Urgência.</p></article>
+      </div>
+    </section>
+
+    <section id="noventa" class="scene">
+      <div class="section-head"><span class="kicker">GUARACI NOS PRÓXIMOS 90 DIAS</span><h2>Primeiro organizar. Depois integrar. Então medir.</h2></div>
+      <div class="timeline">
+        <article><span>AGOSTO</span><h3>Linha de base</h3><p>Entender o ponto de partida.</p></article>
+        <article><span>SETEMBRO</span><h3>Organizar</h3><p>Plantão, UCI/APS, estrutura, registro e responsabilidades.</p></article>
+        <article><span>OUTUBRO</span><h3>Integrar</h3><p>APS ⇄ UCI ⇄ Farmácia ⇄ Laboratório ⇄ Regulação ⇄ Urgência.</p></article>
+        <article><span>NOVEMBRO</span><h3>Medir e corrigir</h3><p>Comparar indicadores e intervir novamente.</p></article>
+      </div>
+      <div class="final-card"><h2>Os recursos já existem. O desafio é fazer tudo funcionar como uma rede.</h2><p>Organizar → Integrar → Medir → Corrigir → Melhorar</p></div>
+    </section>
+  </main>
+  <footer><strong>Caminho do SUS · Guaraci</strong><span>Protótipo em evolução.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
