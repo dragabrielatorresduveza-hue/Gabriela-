@@ -10,169 +10,52 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">
-      <span class="brand-mark">G</span>
-      <div><strong>Mundo Guaraci 3D</strong><small>Caminho do SUS · 90 dias</small></div>
-    </div>
-    <nav>
-      <button data-go="inicio" class="active">Início</button>
-      <button data-go="mundo">Mundo 3D</button>
-      <button data-go="setembro">Setembro</button>
-      <button data-go="jornada">Jornada</button>
-      <button data-go="gestao">Gestão</button>
-      <button data-go="noventa">90 dias</button>
-    </nav>
+    <div class="brand"><span class="brand-mark">G</span><div><strong>Mundo Guaraci 3D</strong><small>Caminho do SUS · 90 dias</small></div></div>
+    <nav><button data-go="inicio" class="active">Início</button><button data-go="mundo">Mundo 3D</button><button data-go="setembro">Setembro</button><button data-go="jornada">Jornada</button><button data-go="gestao">Gestão</button><button data-go="noventa">90 dias</button></nav>
   </header>
 
   <main>
     <section id="inicio" class="scene hero">
-      <div class="hero-copy">
-        <span class="kicker">GUARACI · HOJE → 90 DIAS</span>
-        <h1>O paciente não precisa conhecer o caminho do SUS.</h1>
-        <p class="lead">A rede precisa conhecer o caminho do paciente.</p>
-        <div class="actions">
-          <button class="primary" data-go="mundo">Entrar no Mundo Guaraci</button>
-          <button class="ghost" data-go="setembro">Ver o teste de Setembro</button>
-        </div>
-        <div class="flowline"><span>Organizar</span><i>→</i><span>Integrar</span><i>→</i><span>Resolver</span><i>→</i><span>Medir</span><i>→</i><span>Melhorar</span></div>
-      </div>
-      <div class="hero-orbit" aria-label="Rede municipal de saúde">
-        <div class="orbit o1"></div><div class="orbit o2"></div>
-        <div class="core">PACIENTE</div>
-        <span class="sat s1">APS</span><span class="sat s2">UCI</span><span class="sat s3">URGÊNCIA</span><span class="sat s4">REGULAÇÃO</span><span class="sat s5">FARMÁCIA</span><span class="sat s6">LAB</span>
-      </div>
+      <div class="hero-copy"><span class="kicker">GUARACI · HOJE → 90 DIAS</span><h1>O paciente não precisa conhecer o caminho do SUS.</h1><p class="lead">A rede precisa conhecer o caminho do paciente.</p><div class="actions"><button class="primary" data-go="mundo">Entrar no Mundo Guaraci</button><button class="ghost" data-go="setembro">Ver o teste de Setembro</button></div><div class="flowline"><span>Organizar</span><i>→</i><span>Integrar</span><i>→</i><span>Resolver</span><i>→</i><span>Medir</span><i>→</i><span>Melhorar</span></div></div>
+      <div class="hero-orbit" aria-label="Rede municipal de saúde"><div class="orbit o1"></div><div class="orbit o2"></div><div class="core">PACIENTE</div><span class="sat s1">APS</span><span class="sat s2">UCI</span><span class="sat s3">URGÊNCIA</span><span class="sat s4">REGULAÇÃO</span><span class="sat s5">FARMÁCIA</span><span class="sat s6">LAB</span></div>
     </section>
 
     <section id="mundo" class="scene dark">
-      <div class="section-head">
-        <span class="kicker">VISUALIZAÇÃO 3D CONCEITUAL</span>
-        <h2>Guaraci Hoje</h2>
-        <p>Clique nos setores e veja onde estão os principais gargalos e o que deve mudar nos próximos 90 dias.</p>
-      </div>
-      <div class="modebar">
-        <button data-mode="today" class="active">Hoje</button>
-        <button data-mode="future">Daqui 90 dias</button>
-        <button id="animatePatient">▶ Animar paciente</button>
-      </div>
-      <div class="world-grid">
-        <div class="stage">
-          <div class="ground"></div>
-          <button class="sector aps active" data-sector="aps"><b>APS / ESF</b><small>acolhimento · cuidado · retorno</small></button>
-          <button class="sector gestao" data-sector="gestao"><b>Gestão</b><small>Secretaria Municipal de Saúde</small></button>
-          <button class="sector apoio" data-sector="apoio"><b>Farmácia · Lab · Regulação</b><small>acesso · fila · resultado</small></button>
-          <button class="sector uci" data-sector="uci"><b>UCI / Especialistas</b><small>resolutividade municipal</small></button>
-          <button class="sector urg" data-sector="urg"><b>Urgência / Emergência</b><small>fluxo separado · cobertura segura</small></button>
-          <div class="route r1"></div><div class="route r2"></div><div class="route r3"></div>
-          <div class="patient" aria-label="Paciente"></div>
-        </div>
-        <aside class="panel" aria-live="polite">
-          <span class="pill" id="sectorPill">PRIORIDADE · APS</span>
-          <h3 id="sectorTitle">APS / ESF</h3>
-          <p id="sectorText">Hoje ainda precisamos conectar consulta, exames, tratamento, UCI, Regulação e retorno como um único cuidado.</p>
-          <div class="issue"><strong id="problemTitle">Problema observado</strong><span id="problemText">Encaminhamentos podem acontecer antes de a APS esgotar ou documentar os recursos municipais disponíveis.</span></div>
-          <div class="issue"><strong id="targetTitle">Mudança esperada</strong><span id="targetText">APS coordenando o cuidado e recebendo de volta a informação de cada etapa.</span></div>
-        </aside>
-      </div>
+      <div class="section-head"><span class="kicker">VISUALIZAÇÃO 3D CONCEITUAL</span><h2>Guaraci Hoje</h2><p>Clique nos setores e veja onde estão os principais gargalos e o que deve mudar nos próximos 90 dias.</p></div>
+      <div class="modebar"><button data-mode="today" class="active">Hoje</button><button data-mode="future">Daqui 90 dias</button><button id="animatePatient">▶ Animar paciente</button></div>
+      <div class="world-grid"><div class="stage"><div class="ground"></div><button class="sector aps active" data-sector="aps"><b>APS / ESF</b><small>acolhimento · cuidado · retorno</small></button><button class="sector gestao" data-sector="gestao"><b>Gestão</b><small>Secretaria Municipal de Saúde</small></button><button class="sector apoio" data-sector="apoio"><b>Farmácia · Lab · Regulação</b><small>acesso · fila · resultado</small></button><button class="sector uci" data-sector="uci"><b>UCI / Especialistas</b><small>resolutividade municipal</small></button><button class="sector urg" data-sector="urg"><b>Urgência / Emergência</b><small>fluxo separado · cobertura segura</small></button><div class="route r1"></div><div class="route r2"></div><div class="route r3"></div><div class="patient" aria-label="Paciente"></div></div><aside class="panel" aria-live="polite"><span class="pill" id="sectorPill">PRIORIDADE · APS</span><h3 id="sectorTitle">APS / ESF</h3><p id="sectorText">Hoje ainda precisamos conectar consulta, exames, tratamento, UCI, Regulação e retorno como um único cuidado.</p><div class="issue"><strong id="problemTitle">Problema observado</strong><span id="problemText">Encaminhamentos podem acontecer antes de a APS esgotar ou documentar os recursos municipais disponíveis.</span></div><div class="issue"><strong id="targetTitle">Mudança esperada</strong><span id="targetText">APS coordenando o cuidado e recebendo de volta a informação de cada etapa.</span></div></aside></div>
     </section>
 
     <section id="setembro" class="scene september-scene">
-      <div class="section-head">
-        <span class="kicker">SETEMBRO · TESTE PRÁTICO DO MODELO</span>
-        <h2>Quando a demanda aumentou, a urgência não aumentou junto.</h2>
-        <p>Comparação entre as duas primeiras semanas úteis de setembro no Centro de Saúde de Guaraci. O objetivo é observar o comportamento da APS, não comparar profissionais.</p>
-      </div>
+      <div class="section-head"><span class="kicker">SETEMBRO · TESTE PRÁTICO DO MODELO</span><h2>Quando a demanda aumentou, a urgência não aumentou junto.</h2><p>Comparação entre as duas primeiras semanas úteis de setembro no Centro de Saúde de Guaraci. O objetivo é observar o comportamento da APS e da rede, não comparar profissionais.</p></div>
 
-      <div class="september-context">
-        <div class="context-card"><span>01–05/09</span><strong>134</strong><small>atendimentos totais</small></div>
-        <div class="context-card highlight"><span>08–12/09</span><strong>316</strong><small>atendimentos totais</small></div>
-        <div class="context-card"><span>Variação do volume</span><strong>+136%</strong><small>mais atendimentos na 2ª semana</small></div>
-        <div class="context-card good"><span>Urgências</span><strong>33 → 30</strong><small>-9% apesar do aumento do volume</small></div>
-      </div>
+      <div class="september-context"><div class="context-card"><span>01–05/09</span><strong>134</strong><small>atendimentos totais</small></div><div class="context-card highlight"><span>08–12/09</span><strong>316</strong><small>atendimentos totais</small></div><div class="context-card"><span>Variação do volume</span><strong>+136%</strong><small>mais atendimentos na 2ª semana</small></div><div class="context-card good"><span>Urgências</span><strong>33 → 30</strong><small>-9% apesar do aumento do volume</small></div></div>
 
       <div class="sept-grid">
-        <div class="sept-card">
-          <div class="sept-label">01–05/09</div>
-          <h3>Primeira semana</h3>
-          <div class="sept-stats">
-            <div><span>Atendimentos</span><strong>134</strong></div>
-            <div><span>Urgências</span><strong>33</strong></div>
-            <div><span>Consulta no dia</span><strong>101</strong></div>
-            <div><span>Minhas produções</span><strong>7</strong></div>
-            <div><span>Produção da equipe</span><strong>127</strong></div>
-          </div>
-          <p class="sept-note">Urgência representava aproximadamente 24,6% do total de atendimentos.</p>
-        </div>
-
+        <div class="sept-card"><div class="sept-label">01–05/09</div><h3>Primeira semana</h3><div class="sept-stats"><div><span>Atendimentos</span><strong>134</strong></div><div><span>Urgências</span><strong>33</strong></div><div><span>Consulta no dia</span><strong>101</strong></div><div><span>Minhas produções</span><strong>7</strong></div><div><span>Produção da equipe</span><strong>127</strong></div><div><span>Produções de exames · equipe</span><strong>54</strong></div></div><p class="sept-note">Urgência representava aproximadamente 24,6% do total. O relatório de exames da equipe registrou 54 produções no período.</p></div>
         <div class="sept-arrow">→</div>
-
-        <div class="sept-card featured">
-          <div class="sept-label">08–12/09</div>
-          <h3>Semana de alta demanda</h3>
-          <div class="sept-stats">
-            <div><span>Atendimentos</span><strong>316</strong></div>
-            <div><span>Urgências</span><strong>30</strong></div>
-            <div><span>Consulta no dia</span><strong>254</strong></div>
-            <div><span>Consultas agendadas</span><strong>32</strong></div>
-            <div><span>Minhas produções</span><strong>196</strong></div>
-            <div><span>Produção da equipe</span><strong>120</strong></div>
-            <div><span>Produções de exames</span><strong>38</strong></div>
-          </div>
-          <p class="sept-note">Urgência caiu para aproximadamente 9,5% do total. Na APS, havia uma única médica; o plantão tinha outros médicos em paralelo.</p>
-        </div>
+        <div class="sept-card featured"><div class="sept-label">08–12/09</div><h3>Semana de alta demanda</h3><div class="sept-stats"><div><span>Atendimentos</span><strong>316</strong></div><div><span>Urgências</span><strong>30</strong></div><div><span>Consulta no dia</span><strong>254</strong></div><div><span>Consultas agendadas</span><strong>32</strong></div><div><span>Minhas produções</span><strong>196</strong></div><div><span>Produção da equipe</span><strong>120</strong></div><div><span>Produções de exames · minhas</span><strong>38</strong></div></div><p class="sept-note">Urgência caiu para aproximadamente 9,5% do total. Na APS, havia uma única médica; o plantão tinha outros médicos em paralelo.</p></div>
       </div>
 
-      <div class="sept-insight">
-        <strong>Leitura gerencial</strong>
-        <span>O volume total mais que dobrou entre as duas semanas, enquanto o número absoluto de urgências não aumentou. Isso sugere maior capacidade de absorção da demanda pelo fluxo assistencial da unidade e reforça a necessidade de medir resolutividade, continuidade, uso de exames, UCI e encaminhamento qualificado.</span>
+      <div class="sept-insight"><strong>Leitura gerencial</strong><span>O volume total mais que dobrou entre as duas semanas, enquanto o número absoluto de urgências não aumentou. Isso sugere maior capacidade de absorção da demanda pelo fluxo assistencial da unidade e reforça a necessidade de medir resolutividade, continuidade, UCI e encaminhamento qualificado.</span></div>
+
+      <div class="section-head" style="margin-top:42px"><span class="kicker">01–05/09 · PEDIDOS DE EXAMES</span><h2>54 produções de exames: o que esse padrão está nos dizendo?</h2><p>O relatório da equipe mostra solicitações distribuídas entre laboratório, rastreamento, ultrassonografia, tomografia e eletrocardiograma. O número isolado não permite afirmar excesso ou inadequação; ele mostra onde vale padronizar critérios e depois medir novamente.</p></div>
+      <div class="priorities" style="margin-top:0">
+        <article style="color:inherit;border-color:var(--line)"><b>Laboratório e seguimento</b><p style="color:var(--muted)">Hemograma, creatinina, ureia, sódio, potássio, TGO/TGP, glicemia, HbA1c, perfil lipídico, urina e outros.</p></article>
+        <article style="color:inherit;border-color:var(--line)"><b>Imagem e investigação</b><p style="color:var(--muted)">US de abdome, aparelho urinário, articulação, próstata e obstétrica; TC de coluna lombossacra e tórax; ECG.</p></article>
+        <article style="color:inherit;border-color:var(--line)"><b>Rastreamento</b><p style="color:var(--muted)">Citopatológico do colo do útero e mamografia aparecem no conjunto de produções.</p></article>
       </div>
+      <div class="callout"><strong>Oportunidade de melhoria: protocolo de solicitação de exames</strong><span>Definir indicação clínica, primeira investigação, quando reavaliar, quando ampliar exames e quando encaminhar. Assim o município consegue comparar não apenas quantos exames foram pedidos, mas se o pedido contribuiu para diagnóstico, tratamento e resolução na APS.</span></div>
+      <div class="callout"><strong>Importante para a comparação</strong><span>01–05/09 = 54 produções de exames da equipe. 08–12/09 = 38 produções exibidas no filtro “Minhas produções”. Como os filtros são diferentes, esses dois totais não devem ser apresentados como queda ou aumento de exames.</span></div>
 
       <div class="sept-formula">Setembro = observar se método + investigação + tratamento + retorno + uso correto da rede transformam grande demanda em cuidado resolutivo.</div>
     </section>
 
-    <section id="jornada" class="scene">
-      <div class="section-head">
-        <span class="kicker">JORNADA DO PACIENTE</span>
-        <h2>O caminho deve ser da rede — não do paciente.</h2>
-      </div>
-      <div class="journey">
-        <div class="step"><b>1 · Entrada</b><small>Acolhimento</small></div><span>→</span>
-        <div class="step"><b>2 · APS</b><small>Investigar · tratar · acompanhar</small></div><span>→</span>
-        <div class="step"><b>3 · Rede municipal</b><small>Farmácia · Laboratório · eMulti</small></div><span>→</span>
-        <div class="step"><b>4 · UCI</b><small>Especialistas em Guaraci</small></div><span>→</span>
-        <div class="step"><b>5 · Regulação</b><small>Quando realmente necessário</small></div><span>→</span>
-        <div class="step"><b>6 · Retorno</b><small>Contrarreferência → APS</small></div>
-      </div>
-      <div class="callout"><strong>Resolutividade ≠ não encaminhar.</strong><span>Resolutividade é oferecer o cuidado certo, no lugar certo, e encaminhar adequadamente quando a necessidade ultrapassa a capacidade municipal.</span></div>
-    </section>
+    <section id="jornada" class="scene"><div class="section-head"><span class="kicker">JORNADA DO PACIENTE</span><h2>O caminho deve ser da rede — não do paciente.</h2></div><div class="journey"><div class="step"><b>1 · Entrada</b><small>Acolhimento</small></div><span>→</span><div class="step"><b>2 · APS</b><small>Investigar · tratar · acompanhar</small></div><span>→</span><div class="step"><b>3 · Rede municipal</b><small>Farmácia · Laboratório · eMulti</small></div><span>→</span><div class="step"><b>4 · UCI</b><small>Especialistas em Guaraci</small></div><span>→</span><div class="step"><b>5 · Regulação</b><small>Quando realmente necessário</small></div><span>→</span><div class="step"><b>6 · Retorno</b><small>Contrarreferência → APS</small></div></div><div class="callout"><strong>Resolutividade ≠ não encaminhar.</strong><span>Resolutividade é oferecer o cuidado certo, no lugar certo, e encaminhar adequadamente quando a necessidade ultrapassa a capacidade municipal.</span></div></section>
 
-    <section id="gestao" class="scene dark">
-      <div class="section-head">
-        <span class="kicker">LINHA DE BASE · AGOSTO/2026</span>
-        <h2>O que já conseguimos enxergar.</h2>
-      </div>
-      <div class="metrics">
-        <article><span>ATENDIMENTOS</span><strong>270</strong></article>
-        <article><span>REGISTROS EM EXAMES</span><strong>95</strong></article>
-        <article><span>NÃO COMPARECIMENTOS</span><strong>66</strong></article>
-        <article><span>CADASTRO DOMICILIAR/TERRITORIAL</span><strong>2.988</strong></article>
-      </div>
-      <div class="priorities">
-        <article><b>1 · Plantão</b><p>Cobertura, substituição, comunicação de ausência e passagem de responsabilidade.</p></article>
-        <article><b>2 · UCI → APS</b><p>Transformar devoluções em aprendizado e medir resolutividade.</p></article>
-        <article><b>3 · Estrutura</b><p>Separar fluxos de APS, Gestão, Apoio e Urgência.</p></article>
-      </div>
-    </section>
+    <section id="gestao" class="scene dark"><div class="section-head"><span class="kicker">LINHA DE BASE · AGOSTO/2026</span><h2>O que já conseguimos enxergar.</h2></div><div class="metrics"><article><span>ATENDIMENTOS</span><strong>270</strong></article><article><span>REGISTROS EM EXAMES</span><strong>95</strong></article><article><span>NÃO COMPARECIMENTOS</span><strong>66</strong></article><article><span>CADASTRO DOMICILIAR/TERRITORIAL</span><strong>2.988</strong></article></div><div class="priorities"><article><b>1 · Plantão</b><p>Cobertura, substituição, comunicação de ausência e passagem de responsabilidade.</p></article><article><b>2 · UCI → APS</b><p>Transformar devoluções em aprendizado e medir resolutividade.</p></article><article><b>3 · Estrutura</b><p>Separar fluxos de APS, Gestão, Apoio e Urgência.</p></article></div></section>
 
-    <section id="noventa" class="scene">
-      <div class="section-head"><span class="kicker">GUARACI NOS PRÓXIMOS 90 DIAS</span><h2>Primeiro organizar. Depois integrar. Então medir.</h2></div>
-      <div class="timeline">
-        <article><span>AGOSTO</span><h3>Linha de base</h3><p>Entender o ponto de partida.</p></article>
-        <article><span>SETEMBRO</span><h3>Testar na prática</h3><p>Observar absorção da demanda, organização da APS e sinais iniciais de resolutividade.</p></article>
-        <article><span>OUTUBRO</span><h3>Integrar</h3><p>APS ⇄ UCI ⇄ Farmácia ⇄ Laboratório ⇄ Regulação ⇄ Urgência.</p></article>
-        <article><span>NOVEMBRO</span><h3>Medir e corrigir</h3><p>Comparar indicadores e intervir novamente.</p></article>
-      </div>
-      <div class="final-card"><h2>Os recursos já existem. O desafio é fazer tudo funcionar como uma rede.</h2><p>Organizar → Integrar → Medir → Corrigir → Melhorar</p></div>
-    </section>
+    <section id="noventa" class="scene"><div class="section-head"><span class="kicker">GUARACI NOS PRÓXIMOS 90 DIAS</span><h2>Primeiro organizar. Depois integrar. Então medir.</h2></div><div class="timeline"><article><span>AGOSTO</span><h3>Linha de base</h3><p>Entender o ponto de partida.</p></article><article><span>SETEMBRO</span><h3>Testar na prática</h3><p>Observar absorção da demanda, organização da APS, padrão de exames e sinais iniciais de resolutividade.</p></article><article><span>OUTUBRO</span><h3>Integrar</h3><p>APS ⇄ UCI ⇄ Farmácia ⇄ Laboratório ⇄ Regulação ⇄ Urgência.</p></article><article><span>NOVEMBRO</span><h3>Medir e corrigir</h3><p>Comparar indicadores e intervir novamente.</p></article></div><div class="final-card"><h2>Os recursos já existem. O desafio é fazer tudo funcionar como uma rede.</h2><p>Organizar → Integrar → Medir → Corrigir → Melhorar</p></div></section>
   </main>
   <footer><strong>Caminho do SUS · Guaraci</strong><span>Protótipo em evolução.</span></footer>
   <script src="script.js"></script>
