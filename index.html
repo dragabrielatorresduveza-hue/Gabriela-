@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
   <title>Mundo Guaraci 3D — Caminho do SUS</title>
   <meta name="description" content="Visualização interativa do projeto Caminho do SUS em Guaraci — linha de base e próximos 90 dias." />
   <link rel="stylesheet" href="styles.css" />
@@ -16,6 +17,7 @@
     <nav>
       <button data-go="inicio" class="active">Início</button>
       <button data-go="mundo">Mundo 3D</button>
+      <button data-go="setembro">Setembro</button>
       <button data-go="jornada">Jornada</button>
       <button data-go="gestao">Gestão</button>
       <button data-go="noventa">90 dias</button>
@@ -30,7 +32,7 @@
         <p class="lead">A rede precisa conhecer o caminho do paciente.</p>
         <div class="actions">
           <button class="primary" data-go="mundo">Entrar no Mundo Guaraci</button>
-          <button class="ghost" data-go="jornada">Acompanhar o paciente</button>
+          <button class="ghost" data-go="setembro">Ver o teste de Setembro</button>
         </div>
         <div class="flowline"><span>Organizar</span><i>→</i><span>Integrar</span><i>→</i><span>Resolver</span><i>→</i><span>Medir</span><i>→</i><span>Melhorar</span></div>
       </div>
@@ -73,6 +75,60 @@
       </div>
     </section>
 
+    <section id="setembro" class="scene september-scene">
+      <div class="section-head">
+        <span class="kicker">SETEMBRO · TESTE PRÁTICO DO MODELO</span>
+        <h2>Quando a demanda aumentou, a urgência não aumentou junto.</h2>
+        <p>Comparação entre as duas primeiras semanas úteis de setembro no Centro de Saúde de Guaraci. O objetivo é observar o comportamento da APS, não comparar profissionais.</p>
+      </div>
+
+      <div class="september-context">
+        <div class="context-card"><span>01–05/09</span><strong>134</strong><small>atendimentos totais</small></div>
+        <div class="context-card highlight"><span>08–12/09</span><strong>316</strong><small>atendimentos totais</small></div>
+        <div class="context-card"><span>Variação do volume</span><strong>+136%</strong><small>mais atendimentos na 2ª semana</small></div>
+        <div class="context-card good"><span>Urgências</span><strong>33 → 30</strong><small>-9% apesar do aumento do volume</small></div>
+      </div>
+
+      <div class="sept-grid">
+        <div class="sept-card">
+          <div class="sept-label">01–05/09</div>
+          <h3>Primeira semana</h3>
+          <div class="sept-stats">
+            <div><span>Atendimentos</span><strong>134</strong></div>
+            <div><span>Urgências</span><strong>33</strong></div>
+            <div><span>Consulta no dia</span><strong>101</strong></div>
+            <div><span>Minhas produções</span><strong>7</strong></div>
+            <div><span>Produção da equipe</span><strong>127</strong></div>
+          </div>
+          <p class="sept-note">Urgência representava aproximadamente 24,6% do total de atendimentos.</p>
+        </div>
+
+        <div class="sept-arrow">→</div>
+
+        <div class="sept-card featured">
+          <div class="sept-label">08–12/09</div>
+          <h3>Semana de alta demanda</h3>
+          <div class="sept-stats">
+            <div><span>Atendimentos</span><strong>316</strong></div>
+            <div><span>Urgências</span><strong>30</strong></div>
+            <div><span>Consulta no dia</span><strong>254</strong></div>
+            <div><span>Consultas agendadas</span><strong>32</strong></div>
+            <div><span>Minhas produções</span><strong>196</strong></div>
+            <div><span>Produção da equipe</span><strong>120</strong></div>
+            <div><span>Produções de exames</span><strong>38</strong></div>
+          </div>
+          <p class="sept-note">Urgência caiu para aproximadamente 9,5% do total. Na APS, havia uma única médica; o plantão tinha outros médicos em paralelo.</p>
+        </div>
+      </div>
+
+      <div class="sept-insight">
+        <strong>Leitura gerencial</strong>
+        <span>O volume total mais que dobrou entre as duas semanas, enquanto o número absoluto de urgências não aumentou. Isso sugere maior capacidade de absorção da demanda pelo fluxo assistencial da unidade e reforça a necessidade de medir resolutividade, continuidade, uso de exames, UCI e encaminhamento qualificado.</span>
+      </div>
+
+      <div class="sept-formula">Setembro = observar se método + investigação + tratamento + retorno + uso correto da rede transformam grande demanda em cuidado resolutivo.</div>
+    </section>
+
     <section id="jornada" class="scene">
       <div class="section-head">
         <span class="kicker">JORNADA DO PACIENTE</span>
@@ -111,7 +167,7 @@
       <div class="section-head"><span class="kicker">GUARACI NOS PRÓXIMOS 90 DIAS</span><h2>Primeiro organizar. Depois integrar. Então medir.</h2></div>
       <div class="timeline">
         <article><span>AGOSTO</span><h3>Linha de base</h3><p>Entender o ponto de partida.</p></article>
-        <article><span>SETEMBRO</span><h3>Organizar</h3><p>Plantão, UCI/APS, estrutura, registro e responsabilidades.</p></article>
+        <article><span>SETEMBRO</span><h3>Testar na prática</h3><p>Observar absorção da demanda, organização da APS e sinais iniciais de resolutividade.</p></article>
         <article><span>OUTUBRO</span><h3>Integrar</h3><p>APS ⇄ UCI ⇄ Farmácia ⇄ Laboratório ⇄ Regulação ⇄ Urgência.</p></article>
         <article><span>NOVEMBRO</span><h3>Medir e corrigir</h3><p>Comparar indicadores e intervir novamente.</p></article>
       </div>
