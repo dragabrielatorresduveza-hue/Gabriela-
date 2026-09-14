@@ -7,17 +7,67 @@
   <title>Mundo Guaraci 3D — Caminho do SUS</title>
   <meta name="description" content="Visualização interativa do projeto Caminho do SUS em Guaraci — linha de base e próximos 90 dias." />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .impact-scene{background:#07131b;color:#fff;position:relative;overflow:hidden}.impact-scene:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 28%,rgba(13,118,110,.22),transparent 34%),radial-gradient(circle at 15% 76%,rgba(49,107,140,.18),transparent 32%);pointer-events:none}.impact-wrap{position:relative;z-index:1}.impact-title{font-size:clamp(44px,7vw,96px);line-height:.92;letter-spacing:-.06em;margin:0 0 18px;max-width:1100px}.impact-sub{font-size:clamp(18px,2.2vw,28px);max-width:900px;color:#bdc9cf;line-height:1.35}.impact-main{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch;margin-top:34px}.impact-card{border:1px solid rgba(255,255,255,.15);border-radius:26px;padding:28px;background:rgba(255,255,255,.04);min-height:310px}.impact-card.focus{background:linear-gradient(145deg,rgba(13,118,110,.23),rgba(49,107,140,.15));border-color:rgba(103,201,189,.55)}.impact-date{font-size:13px;letter-spacing:.16em;font-weight:900;color:#81d6cc}.impact-number{font-size:clamp(66px,9vw,132px);line-height:.82;letter-spacing:-.07em;font-weight:950;margin:22px 0 8px}.impact-label{font-size:20px;font-weight:850}.impact-row{display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.1);padding:13px 0}.impact-row span{color:#9fb0b9}.impact-row strong{font-size:22px}.impact-arrow{align-self:center;font-size:52px;color:#67c9bd;font-weight:900}.impact-banner{margin-top:20px;border-radius:22px;background:#fff;color:#0d1720;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:18px}.impact-banner .big{font-size:clamp(44px,6vw,78px);line-height:.9;font-weight:950;letter-spacing:-.05em}.impact-banner .good{color:#0d766e}.impact-banner small{display:block;color:#667085;margin-top:8px;font-size:13px}.impact-context{margin-top:18px;padding:18px 20px;border-left:5px solid #67c9bd;background:rgba(255,255,255,.06);border-radius:12px;font-size:18px;line-height:1.45;color:#d6e0e4}.impact-context strong{color:#fff}.impact-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.impact-proof article{padding:18px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.035)}.impact-proof span{display:block;color:#91a5b0;font-size:11px;letter-spacing:.12em;font-weight:900}.impact-proof strong{display:block;font-size:36px;margin-top:5px}.impact-proof p{color:#b7c4ca;line-height:1.4;margin-bottom:0}.impact-final{margin-top:26px;font-size:clamp(25px,3.3vw,44px);font-weight:900;line-height:1.08;max-width:1050px}.impact-final em{font-style:normal;color:#67c9bd}@media(max-width:850px){.impact-main{grid-template-columns:1fr}.impact-arrow{transform:rotate(90deg);justify-self:center}.impact-banner,.impact-proof{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <header class="topbar">
     <div class="brand"><span class="brand-mark">G</span><div><strong>Mundo Guaraci 3D</strong><small>Caminho do SUS · 90 dias</small></div></div>
-    <nav><button data-go="inicio" class="active">Início</button><button data-go="mundo">Mundo 3D</button><button data-go="setembro">Setembro</button><button data-go="jornada">Jornada</button><button data-go="gestao">Gestão</button><button data-go="noventa">90 dias</button></nav>
+    <nav><button data-go="inicio" class="active">Início</button><button data-go="comparacao">Comparação</button><button data-go="mundo">Mundo 3D</button><button data-go="setembro">Setembro</button><button data-go="jornada">Jornada</button><button data-go="gestao">Gestão</button><button data-go="noventa">90 dias</button></nav>
   </header>
 
   <main>
     <section id="inicio" class="scene hero">
-      <div class="hero-copy"><span class="kicker">GUARACI · HOJE → 90 DIAS</span><h1>O paciente não precisa conhecer o caminho do SUS.</h1><p class="lead">A rede precisa conhecer o caminho do paciente.</p><div class="actions"><button class="primary" data-go="mundo">Entrar no Mundo Guaraci</button><button class="ghost" data-go="setembro">Ver o teste de Setembro</button></div><div class="flowline"><span>Organizar</span><i>→</i><span>Integrar</span><i>→</i><span>Resolver</span><i>→</i><span>Medir</span><i>→</i><span>Melhorar</span></div></div>
+      <div class="hero-copy"><span class="kicker">GUARACI · HOJE → 90 DIAS</span><h1>O paciente não precisa conhecer o caminho do SUS.</h1><p class="lead">A rede precisa conhecer o caminho do paciente.</p><div class="actions"><button class="primary" data-go="comparacao">Ver a comparação que importa</button><button class="ghost" data-go="mundo">Entrar no Mundo Guaraci</button></div><div class="flowline"><span>Organizar</span><i>→</i><span>Integrar</span><i>→</i><span>Resolver</span><i>→</i><span>Medir</span><i>→</i><span>Melhorar</span></div></div>
       <div class="hero-orbit" aria-label="Rede municipal de saúde"><div class="orbit o1"></div><div class="orbit o2"></div><div class="core">PACIENTE</div><span class="sat s1">APS</span><span class="sat s2">UCI</span><span class="sat s3">URGÊNCIA</span><span class="sat s4">REGULAÇÃO</span><span class="sat s5">FARMÁCIA</span><span class="sat s6">LAB</span></div>
+    </section>
+
+    <section id="comparacao" class="scene impact-scene">
+      <div class="impact-wrap">
+        <span class="kicker">A COMPARAÇÃO QUE PRECISA CHEGAR À GESTÃO</span>
+        <h2 class="impact-title">A demanda explodiu.<br>A urgência não.</h2>
+        <p class="impact-sub">Não é uma comparação entre médicos. É uma comparação entre dois momentos do funcionamento da rede — para mostrar o que acontece quando a APS consegue absorver mais demanda.</p>
+
+        <div class="impact-main">
+          <article class="impact-card">
+            <div class="impact-date">01–05/09</div>
+            <div class="impact-number">134</div>
+            <div class="impact-label">atendimentos totais</div>
+            <div class="impact-row"><span>Urgências</span><strong>33</strong></div>
+            <div class="impact-row"><span>Consulta no dia</span><strong>101</strong></div>
+            <div class="impact-row"><span>Urgência / total</span><strong>24,6%</strong></div>
+            <div class="impact-row"><span>Exames · equipe</span><strong>54</strong></div>
+          </article>
+
+          <div class="impact-arrow">→</div>
+
+          <article class="impact-card focus">
+            <div class="impact-date">08–12/09 · SEMANA DE ALTA DEMANDA</div>
+            <div class="impact-number">316</div>
+            <div class="impact-label">atendimentos totais</div>
+            <div class="impact-row"><span>Urgências</span><strong>30</strong></div>
+            <div class="impact-row"><span>Consulta no dia</span><strong>254</strong></div>
+            <div class="impact-row"><span>Urgência / total</span><strong>9,5%</strong></div>
+            <div class="impact-row"><span>Consultas agendadas</span><strong>32</strong></div>
+          </article>
+        </div>
+
+        <div class="impact-banner">
+          <div><span class="big">+136%</span><small>de aumento no volume total de atendimentos</small></div>
+          <div><span class="big good">33 → 30</span><small>urgências: queda absoluta de 9%, mesmo com muito mais demanda</small></div>
+        </div>
+
+        <div class="impact-context"><strong>Contexto operacional:</strong> na semana de 08–12/09, a APS estava com uma única médica, enquanto o plantão seguia com outros médicos em paralelo. Houve frio e chuva, com grande procura por quadros respiratórios e crises de dor. O dado não prova sozinho “quem é melhor”; ele mostra que a rede conseguiu absorver muito mais demanda sem transformar esse aumento em mais urgência.</div>
+
+        <div class="impact-proof">
+          <article><span>MINHAS PRODUÇÕES · 08–12/09</span><strong>196</strong><p>62% das 316 produções registradas no período apareceram no meu usuário. Isso mostra participação importante da APS no volume — não é ranking de profissionais.</p></article>
+          <article><span>PRODUÇÃO DA EQUIPE · 08–12/09</span><strong>120</strong><p>O restante da produção permaneceu distribuído na equipe e no plantão, reforçando que APS e urgência precisam ser lidas separadamente.</p></article>
+          <article><span>PRODUÇÕES DE EXAMES · MINHAS</span><strong>38</strong><p>Há investigação clínica registrada. O próximo passo é medir quantos casos foram resolvidos localmente, retornaram e quantos realmente precisaram ser encaminhados.</p></article>
+        </div>
+
+        <div class="impact-final">A pergunta para Guaraci não é <em>“quantos médicos temos?”</em>.<br>É: <em>“quantos pacientes conseguimos resolver bem dentro da APS e da rede municipal?”</em></div>
+      </div>
     </section>
 
     <section id="mundo" class="scene dark">
