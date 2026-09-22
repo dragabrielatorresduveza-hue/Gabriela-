@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carteirinha Saúde Mental de Guaraci — Impressão</title>
+<style>
+@page{size:A4 landscape;margin:0}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#e9eeee;color:#17252d}
+.toolbar{position:sticky;top:0;z-index:10;padding:10px 14px;background:#173447;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.toolbar button{border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer}
+.wrap{padding:12px}
+.sheet{width:297mm;height:210mm;margin:0 auto 14px;background:#fff;page-break-after:always;display:grid;grid-template-rows:1fr 1fr;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.copy{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px dashed #777;position:relative}
+.copy:last-child{border-bottom:0}
+.copy:after{content:"CORTE";position:absolute;right:4mm;bottom:-2.2mm;background:#fff;padding:0 2mm;font-size:7pt;color:#777}
+.card{padding:7mm 8mm;border-right:1px dashed #aaa;position:relative;overflow:hidden}
+.card:last-child{border-right:0}
+.topline{height:4mm;background:#f1c94a;position:absolute;left:0;right:0;top:0}
+.ribbon{font-size:20pt}
+.eyebrow{font-size:7pt;letter-spacing:.12em;font-weight:700;color:#0d766e;margin-top:2mm}
+h1{font-size:18pt;line-height:1.05;margin:3mm 0 2mm}
+h2{font-size:12pt;margin:2mm 0}
+p,li{font-size:8.4pt;line-height:1.35}
+.muted{color:#60727a}
+.field{border-bottom:1px solid #9fb0b6;min-height:5mm;margin:1.6mm 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.box{border:1px solid #d5dfdc;border-radius:3mm;padding:3mm;margin:2mm 0;background:#fbfcfc}
+.chips{display:flex;flex-wrap:wrap;gap:1.5mm}
+.chip{font-size:7pt;background:#e8f3f1;color:#0d665f;border-radius:999px;padding:1.3mm 2mm;font-weight:700}
+.alert{background:#fff7d6;border:1px solid #ead36c;border-radius:3mm;padding:3mm}
+.footer{position:absolute;left:8mm;right:8mm;bottom:5mm;display:flex;justify-content:space-between;font-size:6.5pt;color:#68777d}
+.center{display:flex;flex-direction:column;justify-content:center;height:100%}
+.small{font-size:7.5pt}
+@media print{
+ body{background:#fff}
+ .toolbar{display:none}
+ .wrap{padding:0}
+ .sheet{margin:0;box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <strong>Carteirinha Saúde Mental de Guaraci — somente impressão</strong>
+  <button onclick="window.print()">Imprimir / Salvar em PDF</button>
+</div>
+<div class="wrap" id="sheets"></div>
+<script>
+const pages={
+1:`<div class="topline"></div><div class="center"><div class="ribbon">🎗️</div><div class="eyebrow">SECRETARIA MUNICIPAL DE SAÚDE · GUARACI/PR</div><h1>Carteirinha<br>Saúde Mental</h1><p class="muted">Cuidado contínuo, simples e conectado à rede.</p><div class="field"></div><p class="small"><b>Nome:</b> __________________________________________</p></div><div class="footer"><span>Guaraci/PR · 2026</span><span>Dra. Gabriela · Médica e Diretora Técnica</span></div>`,
+2:`<div class="topline"></div><div class="eyebrow">PÁGINA 2 · IDENTIFICAÇÃO E REDE</div><h2>Quem sou eu</h2><p>Nome completo</p><div class="field"></div><div class="grid2"><div><p>Data de nascimento</p><div class="field"></div></div><div><p>Telefone</p><div class="field"></div></div></div><p>Unidade / ESF de referência</p><div class="field"></div><div class="grid2"><div><p>Profissional de referência</p><div class="field"></div></div><div><p>Pessoa de confiança</p><div class="field"></div></div></div><div class="footer"><span>Levar nas consultas</span><span>Atualizar quando houver mudança</span></div>`,
+3:`<div class="topline"></div><div class="eyebrow">PÁGINA 3 · COMO ESTOU ME SENTINDO</div><h2>Meu acompanhamento</h2><div class="box"><b>Hoje eu me sinto:</b><div class="chips"><span class="chip">tranquilo(a)</span><span class="chip">ansioso(a)</span><span class="chip">triste</span><span class="chip">irritado(a)</span><span class="chip">com medo</span><span class="chip">sem energia</span></div></div><p>O que mais está me incomodando?</p><div class="field"></div><div class="field"></div><p>O que melhorou desde a última consulta?</p><div class="field"></div><div class="footer"><span>Registrar junto com a equipe</span><span>APS coordena o cuidado</span></div>`,
+4:`<div class="topline"></div><div class="eyebrow">PÁGINA 4 · CRISE DE ANSIEDADE / PÂNICO</div><h2>Quando a ansiedade aperta</h2><div class="alert"><b>Posso perceber:</b><ul><li>coração acelerado ou sensação de aperto;</li><li>sensação de ar preso no peito;</li><li>tremor, tontura ou fraqueza;</li><li>medo intenso ou sensação de perda de controle.</li></ul></div><p><b>Meu plano combinado:</b></p><div class="field"></div><div class="field"></div><p class="small muted">Se os sintomas forem diferentes do habitual ou muito intensos, procurar avaliação.</p><div class="footer"><span>Plano individual</span><span>Não alterar medicação por conta própria</span></div>`,
+5:`<div class="topline"></div><div class="eyebrow">PÁGINA 5 · QUANDO PROCURAR AJUDA</div><h2>Sinais de alerta</h2><div class="box"><p>Procure avaliação se houver piora importante, sintomas físicos intensos ou diferentes do habitual, confusão, desmaio, falta de ar persistente, dor forte no peito ou incapacidade de manter atividades básicas.</p></div><p><b>Onde procurar:</b></p><p>UBS / ESF: _______________________________________</p><p>Serviço de referência: _______________________________</p><p>Telefone: _________________________________________</p><div class="footer"><span>Em dúvida, procure avaliação</span><span>Rede Municipal de Guaraci</span></div>`,
+6:`<div class="topline"></div><div class="eyebrow">PÁGINA 6 · MEDICAÇÕES E ORIENTAÇÕES</div><h2>Meu tratamento atual</h2><div class="grid2"><div><p><b>Medicamento</b></p><div class="field"></div><div class="field"></div><div class="field"></div></div><div><p><b>Horário / orientação</b></p><div class="field"></div><div class="field"></div><div class="field"></div></div></div><div class="box"><b>Observações importantes</b><div class="field"></div><div class="field"></div></div><p class="small muted">Esta página não substitui receita ou prontuário.</p><div class="footer"><span>Atualizar com a equipe</span><span>Não ajustar doses sem orientação</span></div>`,
+7:`<div class="topline"></div><div class="eyebrow">PÁGINA 7 · AGENDA DE CONSULTAS</div><h2>Próximos passos</h2><div class="grid2"><div><p><b>Data</b></p><div class="field"></div><div class="field"></div><div class="field"></div><div class="field"></div></div><div><p><b>Profissional / serviço</b></p><div class="field"></div><div class="field"></div><div class="field"></div><div class="field"></div></div></div><p>Próximo objetivo do cuidado</p><div class="field"></div><div class="footer"><span>APS · Psicologia · Psiquiatria · Neurologia</span><span>Acompanhamento contínuo</span></div>`,
+8:`<div class="topline"></div><div class="center"><div class="ribbon">💛</div><div class="eyebrow">REDE MUNICIPAL DE SAÚDE · GUARACI/PR</div><h1>Cuidado que continua.</h1><p class="muted">A pessoa não precisa decorar o caminho da rede. A rede organiza o caminho da pessoa.</p><div class="box"><b>Leve esta carteirinha nas consultas e mantenha as informações atualizadas.</b></div></div><div class="footer"><span>Saúde Mental · Guaraci</span><span>Dra. Gabriela</span></div>`
+};
+const imposition=[[8,1],[2,7],[6,3],[4,5]];
+const labels=["Folha 1 · frente","Folha 1 · verso","Folha 2 · frente","Folha 2 · verso"];
+const sheets=document.getElementById("sheets");
+imposition.forEach((pair,i)=>{
+ const s=document.createElement("section"); s.className="sheet";
+ for(let copy=0;copy<2;copy++){
+   const row=document.createElement("div");row.className="copy";
+   pair.forEach(n=>{const c=document.createElement("article");c.className="card";c.innerHTML=pages[n];row.appendChild(c)});
+   s.appendChild(row);
+ }
+ s.dataset.label=labels[i]; sheets.appendChild(s);
+});
+</script>
+</body>
+</html>
