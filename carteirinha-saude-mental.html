@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carteirinha Saúde Mental de Guaraci</title>
+  <meta name="description" content="Apresentação institucional da Carteirinha Municipal de Saúde Mental de Guaraci/PR." />
+  <style>
+    :root{
+      --ink:#10212b;--muted:#61727b;--paper:#ffffff;--bg:#f4f7f6;--line:#dce5e2;
+      --teal:#0d766e;--teal2:#135f5a;--yellow:#f2c94c;--yellow2:#fff6cc;--navy:#153247;
+      --soft:#eaf4f2;--rose:#f6eeee;--shadow:0 18px 55px rgba(19,50,71,.10)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
+    button,a{font:inherit}
+    a{text-decoration:none;color:inherit}
+    .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px max(18px,calc((100% - 1160px)/2));background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:11px}
+    .mark{width:40px;height:40px;border-radius:13px;background:var(--yellow);display:grid;place-items:center;font-weight:950;color:#614f00}
+    .brand strong,.brand small{display:block}.brand small{color:var(--muted)}
+    nav{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{padding:8px 10px;border-radius:10px;color:var(--muted);font-size:14px;font-weight:750}
+    nav a:hover{background:#eef3f2;color:var(--ink)}
+    .section{padding:88px max(20px,calc((100% - 1160px)/2));scroll-margin-top:70px}
+    .hero{min-height:82vh;display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center;background:
+      radial-gradient(circle at 85% 18%,rgba(242,201,76,.25),transparent 24%),
+      radial-gradient(circle at 10% 80%,rgba(13,118,110,.10),transparent 24%),linear-gradient(180deg,#fff,#f5f8f7)}
+    .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.14em;font-weight:900;color:var(--teal)}
+    .kicker::before{content:"";width:24px;height:3px;border-radius:99px;background:var(--yellow)}
+    h1{font-size:clamp(46px,7vw,88px);line-height:.94;letter-spacing:-.055em;margin:14px 0 18px;max-width:850px}
+    .lead{font-size:clamp(20px,2.4vw,29px);line-height:1.35;color:var(--muted);max-width:760px}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+    .btn{min-height:46px;padding:0 16px;border-radius:12px;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-weight:850;cursor:pointer;background:#fff}
+    .btn.primary{background:var(--teal);color:white;border-color:var(--teal)}
+    .promise{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px}
+    .promise article{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}
+    .promise b{display:block;font-size:17px}.promise small{display:block;color:var(--muted);line-height:1.4;margin-top:4px}
+    .hero-card-wrap{position:relative;min-height:530px;display:grid;place-items:center}
+    .halo{position:absolute;width:440px;height:440px;border-radius:50%;border:1px solid #d8e4e1;box-shadow:inset 0 0 0 65px rgba(255,255,255,.45)}
+    .ribbon{position:absolute;top:40px;right:8%;font-size:92px;transform:rotate(-12deg);filter:drop-shadow(0 10px 12px rgba(0,0,0,.08))}
+    .mini-card{width:min(410px,88vw);aspect-ratio:1.42;background:#fff;border:1px solid #dce4e2;border-radius:24px;box-shadow:var(--shadow);padding:28px;position:relative;z-index:2;overflow:hidden}
+    .mini-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:9px;background:var(--yellow)}
+    .mini-card .seal{width:58px;height:58px;border-radius:17px;background:var(--yellow2);display:grid;place-items:center;font-size:28px;margin-bottom:18px}
+    .mini-card h3{font-size:32px;line-height:1.02;margin:0}.mini-card p{color:var(--muted);line-height:1.5}
+    .mini-card .city{margin-top:35px;font-size:12px;letter-spacing:.12em;font-weight:900;color:var(--teal)}
+    .head{max-width:860px;margin-bottom:28px}.head h2{font-size:clamp(36px,5vw,62px);letter-spacing:-.045em;line-height:1;margin:10px 0}.head p{font-size:18px;line-height:1.55;color:var(--muted);margin:0}
+    .dark{background:var(--navy);color:#fff}.dark .head p{color:#c8d4da}.dark .kicker{color:#9de0d8}
+    .problem-grid,.benefit-grid,.care-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .tile{background:#fff;border:1px solid var(--line);border-radius:19px;padding:22px;box-shadow:0 8px 28px rgba(19,50,71,.04)}
+    .tile .icon{font-size:30px;margin-bottom:12px}.tile h3{font-size:23px;margin:0 0 8px}.tile p{color:var(--muted);line-height:1.5;margin:0}
+    .dark .tile{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.12)}.dark .tile p{color:#c3d0d6}
+    .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch}
+    .step{background:#fff;border:1px solid var(--line);border-radius:17px;padding:18px;position:relative}
+    .step span{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--yellow2);font-weight:900;color:#725d00}
+    .step h3{font-size:18px;margin:12px 0 6px}.step p{font-size:14px;color:var(--muted);line-height:1.45;margin:0}
+    .step:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);z-index:3;color:var(--teal);font-weight:950}
+    .panic{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;align-items:stretch}
+    .panic-panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}
+    .panic-panel.yellow{background:linear-gradient(135deg,#fff9dc,#fff);border-color:#efdc8f}
+    .symptoms{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
+    .symptom{background:#f7f9f8;border:1px solid var(--line);border-radius:13px;padding:12px;font-weight:760}
+    .panic-panel h3{font-size:28px;margin:0 0 8px}.panic-panel p,.panic-panel li{color:var(--muted);line-height:1.52}
+    .booklet-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+    .booklet-toolbar button{padding:10px 13px;border-radius:11px;border:1px solid var(--line);background:white;font-weight:800;cursor:pointer}
+    .booklet-toolbar button.active{background:var(--teal);border-color:var(--teal);color:white}
+    .book-stage{display:grid;grid-template-columns:1fr .86fr;gap:22px;align-items:start}
+    .page-view{background:#e8efed;border-radius:24px;padding:26px;min-height:540px;display:grid;place-items:center}
+    .card-page{width:min(560px,100%);aspect-ratio:1.42;background:#fff;border-radius:22px;border:1px solid #ced9d6;box-shadow:var(--shadow);padding:30px;position:relative;overflow:hidden}
+    .card-page:before{content:"";position:absolute;top:0;left:0;right:0;height:8px;background:var(--yellow)}
+    .page-number{font-size:12px;letter-spacing:.13em;font-weight:900;color:var(--teal)}
+    .card-page h3{font-size:30px;margin:12px 0 8px}.card-page p{color:var(--muted);line-height:1.5}
+    .lines{display:grid;gap:8px;margin-top:20px}.line{height:38px;border:1px solid #dce5e2;border-radius:10px;background:#fbfcfc}
+    .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}.chip{padding:7px 9px;border-radius:999px;background:var(--soft);font-size:12px;font-weight:850;color:var(--teal2)}
+    .page-index{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .page-button{border:1px solid var(--line);border-radius:15px;background:#fff;padding:14px;text-align:left;cursor:pointer}
+    .page-button strong,.page-button small{display:block}.page-button small{color:var(--muted);margin-top:4px}.page-button.active{outline:3px solid rgba(13,118,110,.18);border-color:#72b0aa}
+    .print-layout{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:21px;padding:22px}
+    .sheet{display:grid;grid-template-columns:1fr 1fr;gap:7px;aspect-ratio:1.414;background:#edf2f1;border-radius:12px;padding:10px;margin-top:12px}
+    .panel{background:white;border:1px dashed #aebdb9;border-radius:9px;display:grid;place-items:center;text-align:center;font-weight:950;font-size:20px}
+    .sheet-label{display:flex;justify-content:space-between;gap:12px;align-items:center}.sheet-label small{color:var(--muted)}
+    .management{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .quote{background:var(--yellow);color:#3c3200;border-radius:22px;padding:28px;font-size:clamp(27px,3.8vw,48px);font-weight:950;line-height:1.05;letter-spacing:-.03em}
+    .management .tile{height:100%}
+    .footer{padding:30px max(20px,calc((100% - 1160px)/2));border-top:1px solid var(--line);background:#fff;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted)}
+    .footer strong{color:var(--ink)}
+    @media(max-width:920px){nav{display:none}.hero,.panic,.book-stage,.management{grid-template-columns:1fr}.problem-grid,.benefit-grid,.care-grid{grid-template-columns:1fr 1fr}.journey{grid-template-columns:1fr 1fr}.step:not(:last-child)::after{display:none}.hero-card-wrap{min-height:450px}.promise{grid-template-columns:1fr}}
+    @media(max-width:580px){.section{padding:68px 18px}.problem-grid,.benefit-grid,.care-grid,.journey,.symptoms,.page-index{grid-template-columns:1fr}.hero{min-height:auto}.halo{width:320px;height:320px}.ribbon{font-size:70px}.mini-card{padding:22px}.card-page{padding:22px}.sheet .panel{font-size:16px}.brand small{display:none}}
+    @media print{.topbar,.hero-actions,.booklet-toolbar{display:none}.section{padding:32px 18px;break-inside:avoid}.hero{min-height:auto}.footer{padding:20px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="mark">🎗</div><div><strong>Saúde Mental · Guaraci</strong><small>Carteirinha municipal · Projeto de linha de cuidado</small></div></div>
+    <nav><a href="#projeto">Projeto</a><a href="#fluxo">Fluxo</a><a href="#crise">Crise</a><a href="#carteirinha">Carteirinha</a><a href="#impressao">Impressão</a><a href="#gestao">Gestão</a></nav>
+  </header>
+
+  <main>
+    <section class="section hero" id="projeto">
+      <div>
+        <span class="kicker">PROJETO MUNICIPAL · GUARACI/PR</span>
+        <h1>Uma carteirinha para transformar cuidado em continuidade.</h1>
+        <p class="lead">A proposta reúne orientação simples, plano de cuidado e acompanhamento em um material pequeno, visual e fácil de levar — conectado à APS e à rede municipal.</p>
+        <div class="hero-actions"><a class="btn primary" href="#carteirinha">Ver a carteirinha</a><a class="btn" href="#gestao">Ir para a apresentação à gestão</a></div>
+        <div class="promise">
+          <article><b>Reconhecer</b><small>O paciente identifica sintomas, situações de alerta e o que costuma ajudar.</small></article>
+          <article><b>Organizar</b><small>Consultas, medicações, referências e plano de cuidado ficam reunidos.</small></article>
+          <article><b>Acompanhar</b><small>A equipe consegue enxergar a evolução e orientar o próximo passo.</small></article>
+        </div>
+      </div>
+      <div class="hero-card-wrap">
+        <div class="halo"></div><div class="ribbon">🎗️</div>
+        <article class="mini-card"><div class="seal">💛</div><h3>Carteirinha<br>Saúde Mental</h3><p>Um cuidado que acompanha a pessoa fora do consultório e ajuda a rede a falar a mesma língua.</p><div class="city">GUARACI · PARANÁ</div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="head"><span class="kicker">POR QUE EXISTE</span><h2>O material não substitui o cuidado. Ele conecta o cuidado.</h2><p>A carteirinha funciona como apoio visual e registro breve. O prontuário continua sendo a fonte clínica oficial; a carteirinha facilita entendimento, continuidade e comunicação entre paciente, família e equipe.</p></div>
+      <div class="problem-grid">
+        <article class="tile"><div class="icon">🧭</div><h3>Menos desencontro</h3><p>O paciente sabe qual é o próximo passo e qual serviço acompanha seu caso.</p></article>
+        <article class="tile"><div class="icon">🗂️</div><h3>Plano visível</h3><p>Tratamento, retornos, profissionais e orientações ficam reunidos em um só lugar.</p></article>
+        <article class="tile"><div class="icon">🤝</div><h3>Rede integrada</h3><p>APS, psicologia, psiquiatria, neurologia e demais pontos de cuidado entram no mesmo percurso.</p></article>
+      </div>
+    </section>
+
+    <section class="section dark" id="fluxo">
+      <div class="head"><span class="kicker">LINHA DE CUIDADO</span><h2>Da entrada ao acompanhamento, sem perder a pessoa no caminho.</h2><p>O desenho da carteirinha acompanha a lógica da rede: acolher, avaliar, construir plano, acompanhar e encaminhar quando necessário.</p></div>
+      <div class="journey">
+        <article class="step"><span>1</span><h3>Acolhimento</h3><p>Escuta da demanda e identificação do que precisa de resposta naquele momento.</p></article>
+        <article class="step"><span>2</span><h3>Avaliação na APS</h3><p>História, sintomas, contexto, uso de medicamentos e impacto funcional.</p></article>
+        <article class="step"><span>3</span><h3>Plano de cuidado</h3><p>Orientações, tratamento, retorno e metas simples acordadas com a pessoa.</p></article>
+        <article class="step"><span>4</span><h3>Rede de apoio</h3><p>Psicologia, psiquiatria, neurologia ou neuropediatria conforme necessidade clínica.</p></article>
+        <article class="step"><span>5</span><h3>Reavaliação</h3><p>A APS mantém o acompanhamento e atualiza o plano conforme a evolução.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="crise">
+      <div class="head"><span class="kicker">ORIENTAÇÃO PRÁTICA</span><h2>Uma página para a pessoa reconhecer uma crise de ansiedade ou pânico.</h2><p>A ideia é usar linguagem simples, sem transformar a carteirinha em diagnóstico automático. O objetivo é ajudar a reconhecer o padrão, lembrar estratégias previamente combinadas e saber quando procurar avaliação.</p></div>
+      <div class="panic">
+        <article class="panic-panel yellow"><h3>“O que eu posso sentir?”</h3><div class="symptoms"><div class="symptom">💓 Coração acelerado ou “apertado”</div><div class="symptom">🌬️ Sensação de ar preso no peito</div><div class="symptom">🫨 Tremor ou sensação de descontrole</div><div class="symptom">😵 Tontura, fraqueza ou sensação estranha</div><div class="symptom">🧠 Medo intenso que aparece de repente</div><div class="symptom">⏱️ Sensação de que algo ruim vai acontecer</div></div></article>
+        <article class="panic-panel"><h3>“O que fazer com o plano que já foi combinado?”</h3><ul><li>Ir para um local mais calmo e reduzir estímulos.</li><li>Tentar desacelerar a respiração sem forçar inspirações muito profundas.</li><li>Usar as estratégias registradas pela equipe e pela própria pessoa.</li><li>Evitar repetir doses extras de medicamentos sem orientação profissional.</li><li>Procurar avaliação imediata diante de sintomas intensos, diferentes do habitual ou sinais físicos preocupantes.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section" id="carteirinha">
+      <div class="head"><span class="kicker">PRODUTO FINAL</span><h2>A carteirinha em 8 páginas, todas com a mesma proporção.</h2><p>Esta visualização corrige a diferença de tamanho que apareceu na última página do PDF: aqui todas as páginas usam exatamente a mesma área e proporção.</p></div>
+      <div class="booklet-toolbar"><button id="prevPage">← Anterior</button><button id="nextPage">Próxima →</button><button id="autoPage">▶ Apresentar automaticamente</button></div>
+      <div class="book-stage">
+        <div class="page-view"><article class="card-page" id="cardPage"></article></div>
+        <div class="page-index" id="pageIndex"></div>
+      </div>
+    </section>
+
+    <section class="section" id="impressao">
+      <div class="head"><span class="kicker">IMPRESSÃO CORRETA</span><h2>A ordem de livreto precisa ser pensada antes de numerar.</h2><p>Para a versão de 8 páginas em 2 folhas A4 paisagem, frente e verso, a imposição deve respeitar a dobra. É isso que evita a última página “ir parar no lugar errado”.</p></div>
+      <div class="print-layout">
+        <div class="sheet-label"><strong>Folha 1 · frente</strong><small>paisagem · dobra central</small></div><div class="sheet"><div class="panel">Página 8</div><div class="panel">Página 1</div></div>
+        <div class="sheet-label" style="margin-top:18px"><strong>Folha 1 · verso</strong><small>impressão frente e verso</small></div><div class="sheet"><div class="panel">Página 2</div><div class="panel">Página 7</div></div>
+        <div class="sheet-label" style="margin-top:18px"><strong>Folha 2 · frente</strong><small>miolo</small></div><div class="sheet"><div class="panel">Página 6</div><div class="panel">Página 3</div></div>
+        <div class="sheet-label" style="margin-top:18px"><strong>Folha 2 · verso</strong><small>centro do livreto</small></div><div class="sheet"><div class="panel">Página 4</div><div class="panel">Página 5</div></div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="head"><span class="kicker">O QUE A REDE GANHA</span><h2>Um material simples, mas com função assistencial e gerencial.</h2></div>
+      <div class="benefit-grid">
+        <article class="tile"><div class="icon">👤</div><h3>Para o paciente</h3><p>Mais clareza sobre o próprio plano, retornos e sinais que precisam de avaliação.</p></article>
+        <article class="tile"><div class="icon">🩺</div><h3>Para a equipe</h3><p>Uma linguagem comum para reforçar orientação, adesão e acompanhamento longitudinal.</p></article>
+        <article class="tile"><div class="icon">🏥</div><h3>Para a gestão</h3><p>Um projeto concreto que organiza a linha de cuidado e pode evoluir para indicadores de acompanhamento.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="gestao">
+      <div class="head"><span class="kicker">MENSAGEM PARA A APRESENTAÇÃO</span><h2>O ponto central não é imprimir uma carteirinha.</h2><p>É usar um objeto simples para reforçar um modelo de cuidado contínuo, compreensível e conectado à rede municipal.</p></div>
+      <div class="management">
+        <div class="quote">“A pessoa não precisa decorar o caminho da rede. A rede precisa organizar o caminho da pessoa.”</div>
+        <article class="tile"><div class="icon">✅</div><h3>Proposta para implantação</h3><p>Validar o conteúdo com a equipe, realizar prova física de impressão, iniciar uso piloto, recolher feedback de pacientes e profissionais e ajustar antes de ampliar.</p><div class="chips"><span class="chip">APS</span><span class="chip">Psicologia</span><span class="chip">Psiquiatria</span><span class="chip">Neurologia</span><span class="chip">Neuropediatria</span></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div><strong>Carteirinha Saúde Mental de Guaraci</strong><br><span>Projeto de linha de cuidado municipal.</span></div><div><strong>Dra. Gabriela</strong><br><span>Médica e Diretora Técnica</span></div></footer>
+
+  <script>
+    const pages = [
+      {title:"Capa", subtitle:"Carteirinha Saúde Mental de Guaraci", body:"Identidade visual com laço amarelo, município e espaço para identificação.", chips:["Guaraci/PR","Saúde Mental","Linha de cuidado"], lines:2},
+      {title:"Quem sou eu", subtitle:"Identificação e referências", body:"Dados essenciais, contatos importantes e serviço de acompanhamento.", chips:["Identificação","Contato","Unidade"], lines:4},
+      {title:"Meu tratamento", subtitle:"Medicações e horários", body:"Registro simples do esquema vigente, sem substituir a prescrição ou o prontuário.", chips:["Medicamento","Horário","Observação"], lines:4},
+      {title:"Quando a ansiedade aperta", subtitle:"Reconhecer o meu padrão", body:"Sintomas que costumam aparecer e sinais que ajudam a pessoa a perceber o início de uma crise.", chips:["Coração acelerado","Ar preso","Tremor","Medo intenso"], lines:2},
+      {title:"Meu plano para a crise", subtitle:"O que costuma me ajudar", body:"Estratégias previamente combinadas com a equipe e espaço para personalização.", chips:["Lugar calmo","Respiração mais lenta","Pessoa de confiança"], lines:3},
+      {title:"Minha rede de cuidado", subtitle:"Quem acompanha comigo", body:"APS como coordenadora e acesso aos demais pontos de cuidado conforme necessidade clínica.", chips:["APS","Psicologia","Psiquiatria","Neurologia"], lines:2},
+      {title:"Acompanhamento", subtitle:"Consultas e evolução", body:"Espaço curto para datas, profissional e próximo passo acordado.", chips:["Data","Profissional","Próximo retorno"], lines:4},
+      {title:"Contracapa", subtitle:"Cuidado que continua", body:"Orientações finais, identificação municipal e autoria. Mesma medida e proporção das demais páginas.", chips:["Guaraci","Rede municipal","Dra. Gabriela"], lines:2}
+    ];
+    let current=0, timer=null;
+    const card=document.getElementById("cardPage"), index=document.getElementById("pageIndex");
+    function render(){
+      const p=pages[current];
+      card.innerHTML='<div class="page-number">PÁGINA '+(current+1)+' · 8</div><h3>'+p.title+'</h3><strong>'+p.subtitle+'</strong><p>'+p.body+'</p><div class="chips">'+p.chips.map(c=>'<span class="chip">'+c+'</span>').join("")+'</div><div class="lines">'+Array.from({length:p.lines},()=>'<div class="line"></div>').join("")+'</div>';
+      index.innerHTML=pages.map((x,i)=>'<button class="page-button '+(i===current?'active':'')+'" data-page="'+i+'"><strong>'+(i+1)+'. '+x.title+'</strong><small>'+x.subtitle+'</small></button>').join("");
+      index.querySelectorAll("[data-page]").forEach(b=>b.onclick=()=>{current=Number(b.dataset.page);render()});
+    }
+    document.getElementById("prevPage").onclick=()=>{current=(current+7)%8;render()};
+    document.getElementById("nextPage").onclick=()=>{current=(current+1)%8;render()};
+    document.getElementById("autoPage").onclick=function(){
+      if(timer){clearInterval(timer);timer=null;this.textContent="▶ Apresentar automaticamente";this.classList.remove("active");return}
+      this.textContent="■ Parar apresentação";this.classList.add("active");timer=setInterval(()=>{current=(current+1)%8;render()},2200)
+    };
+    render();
+  </script>
+</body>
+</html>
