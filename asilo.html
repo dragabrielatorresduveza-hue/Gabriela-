@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Asilo Guaraci — Acompanhamento Integral</title>
+<style>
+:root{--bg:#f4f7f8;--card:#fff;--ink:#16323a;--muted:#65777d;--line:#dbe6e8;--p:#0b7285;--p2:#155c69;--ok:#2e7d4f;--warn:#8a6500;--bad:#a42b36;--soft:#eef7f8}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input,textarea,select{font:inherit}
+header{background:linear-gradient(135deg,#0b7285,#144b56);color:#fff;padding:28px 5vw 24px}.head{max-width:1500px;margin:auto;display:flex;justify-content:space-between;gap:24px;align-items:center}
+h1{margin:4px 0 6px;font-size:clamp(28px,4vw,48px)}.eyebrow{margin:0;font-size:12px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;opacity:.85}.sub{margin:0;max-width:760px;opacity:.92}
+.privacy{padding:10px 14px;border:1px solid #ffffff55;border-radius:999px;background:#ffffff18;font-size:13px}
+main{max-width:1500px;margin:auto;padding:22px 4vw 60px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px #15313910}
+.toolbar{display:flex;justify-content:space-between;gap:12px;padding:14px;margin-bottom:14px;flex-wrap:wrap}.actions{display:flex;gap:8px;flex-wrap:wrap}
+button,.file{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;font-weight:750;cursor:pointer}.primary{background:var(--p);color:#fff;border-color:var(--p)}
+input,textarea,select{width:100%;border:1px solid var(--line);border-radius:10px;padding:9px;background:#fff;color:var(--ink)}textarea{min-height:82px;resize:vertical}.search{min-width:260px}
+.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px}.metric{padding:14px}.metric strong{display:block;font-size:25px}.metric small{color:var(--muted)}
+.notice{padding:14px 16px;margin-bottom:14px;background:linear-gradient(90deg,#fff,#f3fbfc)}.notice b{color:var(--p2)}
+.patient{padding:17px;margin-bottom:14px}.phead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:13px}.phead h2{margin:6px 0 3px}.meta{margin:0;color:var(--muted);font-size:14px}
+.badges{display:flex;gap:6px;flex-wrap:wrap}.badge{font-size:12px;font-weight:850;padding:5px 8px;border-radius:999px;background:#eef4f5}.red{background:#fdecef;color:#8f2030}.yellow{background:#fff4d6;color:#785700}.green{background:#e9f6ed;color:#28633e}
+.topgrid{display:grid;grid-template-columns:1.1fr 1fr 1fr .9fr;gap:9px;margin-top:12px}.box{background:#f9fbfb;border:1px solid #e7eef0;border-radius:12px;padding:11px;min-height:100px}.lab{font-size:11px;text-transform:uppercase;letter-spacing:.04em;font-weight:900}.box p,.plan p,.visit p{margin:7px 0 0;white-space:pre-wrap}
+.multi{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}.mini{padding:9px;border:1px solid var(--line);border-radius:11px;background:#fff}.mini b{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;margin-bottom:4px}.mini span{font-weight:800}
+.visits{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:10px}.visit{background:#f9fbfb;border-left:4px solid var(--p);border-radius:10px;padding:11px}.visit small{display:block;color:var(--muted);margin-top:2px}.trend{font-weight:850}.plan{margin-top:10px;padding:12px;background:#eef8fa;border-radius:12px}
+.empty{text-align:center;padding:42px 20px}dialog{width:min(1180px,96vw);border:0;border-radius:20px;padding:0;box-shadow:0 30px 80px #0004}dialog::backdrop{background:#102a3066}form{padding:20px}
+.dhead{display:flex;justify-content:space-between;gap:12px}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.tab{background:#f8fbfb}.tab.active{background:var(--p);color:#fff;border-color:var(--p)}
+.panel{display:none}.panel.active{display:block}.formgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.formgrid label,.visitEdit label{display:flex;flex-direction:column;gap:5px;font-weight:750}
+.visitEdit{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.visitEdit fieldset{border:1px solid var(--line);border-radius:12px;padding:10px}.visitEdit legend{font-weight:850}
+.checks{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.checks label{padding:7px 9px;border:1px solid var(--line);border-radius:999px;background:#f9fbfb}.actionsEnd{display:grid;grid-template-columns:auto 1fr auto auto;gap:8px;margin-top:14px}.danger{color:var(--bad)}
+@media(max-width:1050px){.metrics{grid-template-columns:repeat(3,1fr)}.topgrid{grid-template-columns:repeat(2,1fr)}.multi{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){header .head{align-items:flex-start;flex-direction:column}.formgrid,.visitEdit,.visits{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.metrics,.topgrid,.multi{grid-template-columns:1fr}.privacy{border-radius:14px}.search{min-width:100%}}
+@media print{body{background:#fff}header{background:#fff;color:#000;border-bottom:2px solid #000}.privacy,.toolbar,.edit,.empty{display:none!important}.card{box-shadow:none}.patient{break-inside:avoid}.metrics{grid-template-columns:repeat(5,1fr)}}
+</style>
+</head>
+<body>
+<header><div class="head">
+<div><p class="eyebrow">Guaraci/PR • acompanhamento semanal</p><h1>Asilo — Cuidado Integral</h1><p class="sub">Painel longitudinal para acompanhar saúde clínica, mental, funcionalidade, medicações, feridas e evolução entre as visitas de segunda-feira.</p></div>
+<div class="privacy">🔒 Dados dos moradores ficam somente neste navegador</div>
+</div></header>
+
+<main>
+<section class="toolbar card">
+<div class="actions"><button id="add" class="primary">＋ Novo paciente</button><button id="print">🖨️ Imprimir</button><button id="export">⬇️ Backup</button><label class="file">⬆️ Restaurar<input id="import" type="file" accept="application/json" hidden></label></div>
+<input id="search" class="search" placeholder="Buscar paciente...">
+</section>
+
+<section class="metrics">
+<div class="metric card"><strong id="nPatients">0</strong><small>👥 Pacientes</small></div>
+<div class="metric card"><strong id="nPriority">0</strong><small>🔴 Prioridade alta</small></div>
+<div class="metric card"><strong id="nMed">0</strong><small>💊 Mudança medicamentosa</small></div>
+<div class="metric card"><strong id="nWound">0</strong><small>🩹 Ferida/lesão</small></div>
+<div class="metric card"><strong>3</strong><small>📅 Visitas comparáveis</small></div>
+</section>
+
+<section class="notice card"><b>Roteiro de segunda-feira:</b> comparar cognição/humor, sono, quedas, dor, alimentação, marcha, continência, pele/feridas, efeitos adversos, medicações, vacinas e pendências. Registrar o que mudou e o que observar até a próxima visita.</section>
+
+<section id="patients"></section>
+<section id="empty" class="empty card"><h2>🩺 Censo clínico do asilo</h2><p>Cadastre cada morador e acompanhe as três visitas de forma comparável.</p><button class="primary" onclick="document.getElementById('add').click()">Adicionar primeiro paciente</button></section>
+</main>
+
+<dialog id="dlg"><form id="form">
+<div class="dhead"><div><p class="eyebrow">Ficha individual</p><h2 id="title">Novo paciente</h2></div><button type="button" id="close">✕</button></div>
+<input type="hidden" id="id">
+
+<div class="tabs">
+<button type="button" class="tab active" data-panel="basic">1. Resumo</button>
+<button type="button" class="tab" data-panel="multiP">2. Multidimensional</button>
+<button type="button" class="tab" data-panel="visitsP">3. Visitas</button>
+</div>
+
+<section class="panel active" id="basic">
+<div class="formgrid">
+<label>Nome completo<input id="name" required></label>
+<label>Data de nascimento<input id="dob" type="date"></label>
+<label>Prioridade<select id="priority"><option value="verde">🟢 Estável</option><option value="amarelo">🟡 Atenção</option><option value="vermelho">🔴 Prioridade alta</option></select></label>
+<label>Diagnósticos/antecedentes<textarea id="diagnoses"></textarea></label>
+<label>Medicações atuais<textarea id="meds"></textarea></label>
+<label>Problema prioritário<textarea id="focus"></textarea></label>
+<label>Exames/encaminhamentos pendentes<textarea id="pending"></textarea></label>
+<label>Plano atual<textarea id="plan"></textarea></label>
+<label>Próxima segunda: o que verificar<textarea id="next"></textarea></label>
+</div>
+<div class="checks">
+<label><input id="mental" type="checkbox"> 🧠 Saúde mental</label><label><input id="wound" type="checkbox"> 🩹 Ferida</label><label><input id="fall" type="checkbox"> 🚶 Queda/marcha</label><label><input id="sleep" type="checkbox"> 😴 Sono</label><label><input id="medChange" type="checkbox"> 💊 Mudança medicamentosa</label>
+</div>
+</section>
+
+<section class="panel" id="multiP">
+<div class="formgrid">
+<label>IVCF-20 / vulnerabilidade<input id="ivcf" placeholder="Ex.: 0–6 baixo, 7–14 moderado, ≥15 alto"></label>
+<label>Cognição / humor<textarea id="cognition"></textarea></label>
+<label>Mobilidade / marcha<textarea id="mobility"></textarea></label>
+<label>Nutrição / alimentação<textarea id="nutrition"></textarea></label>
+<label>Continência / eliminações<textarea id="continence"></textarea></label>
+<label>Pele / lesões / pressão<textarea id="skin"></textarea></label>
+<label>Visão / audição / saúde bucal<textarea id="sensory"></textarea></label>
+<label>Vacinas / prevenção<textarea id="vaccines"></textarea></label>
+<label>Contexto familiar / cuidador<textarea id="social"></textarea></label>
+</div>
+</section>
+
+<section class="panel" id="visitsP">
+<div class="visitEdit">
+<fieldset><legend>Visita 1</legend><label>Data<input id="v1date" type="date"></label><label>Evolução<textarea id="v1note"></textarea></label><label>Classificação<select id="v1status"><option value="">—</option><option>Melhor</option><option>Igual</option><option>Pior</option></select></label></fieldset>
+<fieldset><legend>Visita 2</legend><label>Data<input id="v2date" type="date"></label><label>Evolução<textarea id="v2note"></textarea></label><label>Classificação<select id="v2status"><option value="">—</option><option>Melhor</option><option>Igual</option><option>Pior</option></select></label></fieldset>
+<fieldset><legend>Visita 3</legend><label>Data<input id="v3date" type="date"></label><label>Evolução<textarea id="v3note"></textarea></label><label>Classificação<select id="v3status"><option value="">—</option><option>Melhor</option><option>Igual</option><option>Pior</option></select></label></fieldset>
+</div>
+</section>
+
+<div class="actionsEnd"><button type="button" id="delete" class="danger">Excluir</button><span></span><button type="button" id="cancel">Cancelar</button><button class="primary" type="submit">Salvar ficha</button></div>
+</form></dialog>
+
+<script>
+const KEY="asiloGuaraciPatientsV2";let patients=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem("asiloGuaraciPatientsV1")||"[]");
+const $=id=>document.getElementById(id);
+const fields=["name","dob","priority","diagnoses","meds","focus","pending","plan","next","ivcf","cognition","mobility","nutrition","continence","skin","sensory","vaccines","social","v1date","v1note","v1status","v2date","v2note","v2status","v3date","v3note","v3status","mental","wound","fall","sleep","medChange"];
+function save(){localStorage.setItem(KEY,JSON.stringify(patients));render()}
+function age(d){if(!d)return"";const x=new Date(d+"T00:00:00"),n=new Date();let a=n.getFullYear()-x.getFullYear();if(n<new Date(n.getFullYear(),x.getMonth(),x.getDate()))a--;return a+" anos"}
+function fmt(d){return d?d.split("-").reverse().join("/"):"Sem data"}
+function val(v){return v&&String(v).trim()?v:"—"}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function tags(p){let a=[];a.push(p.priority==="vermelho"?'<span class="badge red">🔴 Prioridade alta</span>':p.priority==="amarelo"?'<span class="badge yellow">🟡 Atenção</span>':'<span class="badge green">🟢 Estável</span>');if(p.mental)a.push('<span class="badge">🧠 Saúde mental</span>');if(p.wound)a.push('<span class="badge">🩹 Ferida</span>');if(p.fall)a.push('<span class="badge">🚶 Marcha/queda</span>');if(p.sleep)a.push('<span class="badge">😴 Sono</span>');if(p.medChange)a.push('<span class="badge">💊 Medicação alterada</span>');return a.join("")}
+function trend(p){const xs=[p.v1status,p.v2status,p.v3status].filter(Boolean);if(!xs.length)return"Sem tendência definida";const last=xs[xs.length-1];return last==="Melhor"?"🟢 Melhora":last==="Pior"?"🔴 Piora":"🟡 Estável/sem mudança"}
+function render(){const q=$("search").value.toLowerCase();const list=patients.filter(p=>p.name.toLowerCase().includes(q));$("patients").innerHTML=list.map(p=>`
+<article class="patient card">
+<div class="phead"><div><div class="badges">${tags(p)}</div><h2>${esc(p.name)}</h2><p class="meta">${p.dob?fmt(p.dob)+" • "+age(p.dob):"Data de nascimento não informada"} • <span class="trend">${trend(p)}</span></p></div><button class="edit" onclick="editPatient('${p.id}')">✏️ Editar</button></div>
+<div class="topgrid">
+<div class="box"><span class="lab">🎯 Foco atual</span><p>${esc(val(p.focus))}</p></div>
+<div class="box"><span class="lab">🧾 Diagnósticos</span><p>${esc(val(p.diagnoses))}</p></div>
+<div class="box"><span class="lab">💊 Medicações</span><p>${esc(val(p.meds))}</p></div>
+<div class="box"><span class="lab">🧪 Pendências</span><p>${esc(val(p.pending))}</p></div>
+</div>
+<div class="multi">
+<div class="mini"><b>IVCF-20</b><span>${esc(val(p.ivcf))}</span></div>
+<div class="mini"><b>Cognição/humor</b><span>${esc(val(p.cognition))}</span></div>
+<div class="mini"><b>Mobilidade</b><span>${esc(val(p.mobility))}</span></div>
+<div class="mini"><b>Nutrição</b><span>${esc(val(p.nutrition))}</span></div>
+<div class="mini"><b>Pele</b><span>${esc(val(p.skin))}</span></div>
+<div class="mini"><b>Vacinas</b><span>${esc(val(p.vaccines))}</span></div>
+</div>
+<div class="visits">
+<div class="visit"><b>Visita 1</b><small>${fmt(p.v1date)} • ${esc(val(p.v1status))}</small><p>${esc(val(p.v1note))}</p></div>
+<div class="visit"><b>Visita 2</b><small>${fmt(p.v2date)} • ${esc(val(p.v2status))}</small><p>${esc(val(p.v2note))}</p></div>
+<div class="visit"><b>Visita 3</b><small>${fmt(p.v3date)} • ${esc(val(p.v3status))}</small><p>${esc(val(p.v3note))}</p></div>
+</div>
+<div class="plan"><b>📌 Plano atual</b><p>${esc(val(p.plan))}</p><p><b>➡️ Próxima segunda:</b> ${esc(val(p.next))}</p></div>
+</article>`).join("");
+$("empty").style.display=patients.length?"none":"block";$("nPatients").textContent=patients.length;$("nPriority").textContent=patients.filter(p=>p.priority==="vermelho").length;$("nMed").textContent=patients.filter(p=>p.medChange).length;$("nWound").textContent=patients.filter(p=>p.wound).length}
+function openForm(p={}){$("title").textContent=p.id?"Editar paciente":"Novo paciente";$("id").value=p.id||"";fields.forEach(f=>{const e=$(f);if(e.type==="checkbox")e.checked=!!p[f];else e.value=p[f]||""});$("delete").style.visibility=p.id?"visible":"hidden";document.querySelectorAll(".tab").forEach((x,i)=>x.classList.toggle("active",i===0));document.querySelectorAll(".panel").forEach((x,i)=>x.classList.toggle("active",i===0));$("dlg").showModal()}
+window.editPatient=id=>openForm(patients.find(p=>p.id===id));
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));b.classList.add("active");$(b.dataset.panel).classList.add("active")});
+$("add").onclick=()=>openForm();$("close").onclick=$("cancel").onclick=()=>$("dlg").close();$("print").onclick=()=>print();$("search").oninput=render;
+$("form").onsubmit=e=>{e.preventDefault();const id=$("id").value||crypto.randomUUID();const p={id};fields.forEach(f=>{const el=$(f);p[f]=el.type==="checkbox"?el.checked:el.value.trim()});const i=patients.findIndex(x=>x.id===id);if(i>=0)patients[i]=p;else patients.push(p);save();$("dlg").close()};
+$("delete").onclick=()=>{const id=$("id").value;if(id&&confirm("Excluir esta ficha deste navegador?")){patients=patients.filter(p=>p.id!==id);save();$("dlg").close()}};
+$("export").onclick=()=>{const b=new Blob([JSON.stringify(patients,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-asilo-guaraci.json";a.click();URL.revokeObjectURL(a.href)};
+$("import").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!Array.isArray(x))throw 0;patients=x;save();alert("Backup restaurado.")}catch{alert("Arquivo inválido.")}};r.readAsText(f)};
+render();
+</script>
+</body></html>
