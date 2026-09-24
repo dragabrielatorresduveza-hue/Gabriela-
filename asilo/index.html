@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Asilo Guaraci — Visita Semanal</title>
+<style>
+:root{--bg:#f4f7f8;--card:#fff;--ink:#18343c;--muted:#65787d;--line:#dce7e9;--p:#0b7285;--soft:#eef8fa;--danger:#a52a35}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}button,input,textarea,select{font:inherit}
+header{background:#0b7285;color:#fff;padding:20px 5vw}.head{max-width:1200px;margin:auto}.eyebrow{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;opacity:.9;margin:0}.head h1{margin:5px 0 3px}.head p{margin:0}
+main{max-width:1200px;margin:auto;padding:18px 4vw 50px}.card{background:#fff;border:1px solid var(--line);border-radius:16px}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}.quick button{min-height:86px;text-align:left;padding:14px;border-radius:16px;border:1px solid var(--line);background:#fff;font-weight:800;cursor:pointer}.quick span{display:block;font-size:24px;margin-bottom:6px}.quick small{display:block;color:var(--muted);font-weight:500;margin-top:3px}
+.toolbar{display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap;padding:12px;margin-bottom:12px}.left{display:flex;gap:8px;flex-wrap:wrap}button,.file{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;font-weight:700;cursor:pointer}.primary{background:var(--p);color:#fff;border-color:var(--p)}.search{min-width:230px;border:1px solid var(--line);border-radius:10px;padding:9px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:12px}.stat{padding:13px}.stat b{font-size:24px;display:block}.stat small{color:var(--muted)}
+.patient{padding:14px;margin-bottom:10px}.phead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.phead h2{margin:3px 0}.meta{margin:0;color:var(--muted);font-size:14px}.badges{display:flex;gap:6px;flex-wrap:wrap}.badge{font-size:12px;padding:5px 8px;border-radius:999px;background:#eef4f5;font-weight:800}.red{background:#fdecef;color:#8f2030}.yellow{background:#fff4d6;color:#785700}.green{background:#e9f6ed;color:#28633e}
+.summary{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}.box{background:#f9fbfb;border:1px solid #e8eff0;border-radius:11px;padding:10px}.box b{display:block;font-size:12px;text-transform:uppercase;margin-bottom:5px}.box p{margin:0;white-space:pre-wrap}
+.visits{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:9px}.visit{border:1px solid var(--line);border-left:4px solid var(--p);border-radius:10px;padding:10px}.visit small{display:block;color:var(--muted);margin-top:2px}.visit p{white-space:pre-wrap;margin:6px 0 0}
+.next{margin-top:9px;background:var(--soft);padding:10px;border-radius:10px}.next p{margin:4px 0 0;white-space:pre-wrap}
+.empty{text-align:center;padding:34px 18px}dialog{width:min(900px,95vw);border:0;border-radius:18px;padding:0}dialog::backdrop{background:#102a3066}form{padding:18px}.dhead{display:flex;justify-content:space-between}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.grid label,.visitEdit label{display:flex;flex-direction:column;gap:4px;font-weight:700}input,textarea,select{width:100%;border:1px solid var(--line);border-radius:9px;padding:8px}textarea{min-height:76px;resize:vertical}.visitEdit{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.visitEdit fieldset{border:1px solid var(--line);border-radius:10px}.checks{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.checks label{border:1px solid var(--line);border-radius:999px;padding:7px 9px;background:#f9fbfb}.end{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}.danger{color:var(--danger)}
+.view{display:none}.view.active{display:block}.section-title{margin:12px 0 8px}.help{color:var(--muted);font-size:14px}
+@media(max-width:800px){.quick{grid-template-columns:repeat(2,1fr)}.summary,.grid,.visitEdit,.visits{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.quick,.stats{grid-template-columns:1fr}.search{width:100%;min-width:0}.phead{flex-direction:column}}
+@media print{.quick,.toolbar,.edit,.empty{display:none!important}body{background:#fff}.card{border-color:#bbb}.patient{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header><div class="head"><p class="eyebrow">Guaraci/PR • segunda-feira</p><h1>Asilo — Visita Semanal</h1><p>Abra, escolha o paciente e registre a evolução.</p></div></header>
+<main>
+<section class="quick">
+<button data-view="patients"><span>👥</span>Pacientes<small>Ver e editar fichas</small></button>
+<button data-view="today"><span>🩺</span>Visita de hoje<small>Foco da segunda-feira</small></button>
+<button data-view="evolution"><span>📈</span>3 semanas<small>Comparar evolução</small></button>
+<button data-view="pending"><span>📌</span>Pendências<small>Exames e próxima conduta</small></button>
+</section>
+
+<section class="toolbar card"><div class="left"><button id="add" class="primary">＋ Novo paciente</button><button id="print">🖨️ Imprimir</button><button id="export">⬇️ Backup</button><label class="file">⬆️ Restaurar<input id="import" type="file" accept="application/json" hidden></label></div><input id="search" class="search" placeholder="Buscar paciente"></section>
+
+<section class="stats"><div class="stat card"><b id="nPatients">0</b><small>Pacientes</small></div><div class="stat card"><b id="nPriority">0</b><small>🔴 Prioridade</small></div><div class="stat card"><b id="nPending">0</b><small>📌 Com pendências</small></div></section>
+
+<section id="patientsView" class="view active"><h2 class="section-title">Pacientes</h2><p class="help">Toque em Editar para atualizar a ficha.</p><div id="patients"></div></section>
+<section id="todayView" class="view"><h2 class="section-title">Visita de hoje</h2><p class="help">Veja o foco e o que precisa verificar nesta segunda-feira.</p><div id="todayList"></div></section>
+<section id="evolutionView" class="view"><h2 class="section-title">Evolução — 3 semanas</h2><p class="help">Compare as três visitas lado a lado.</p><div id="evolutionList"></div></section>
+<section id="pendingView" class="view"><h2 class="section-title">Pendências</h2><p class="help">Exames, encaminhamentos e plano para a próxima segunda.</p><div id="pendingList"></div></section>
+<section id="empty" class="empty card"><h2>🩺 Comece o acompanhamento</h2><p>Cadastre o primeiro morador.</p><button class="primary" id="firstAdd">Adicionar paciente</button></section>
+</main>
+
+<dialog id="dlg"><form id="form">
+<div class="dhead"><div><p class="eyebrow">Ficha do paciente</p><h2 id="title">Novo paciente</h2></div><button type="button" id="close">✕</button></div>
+<input id="id" type="hidden">
+<div class="grid">
+<label>Nome completo<input id="name" required></label>
+<label>Data de nascimento<input id="dob" type="date"></label>
+<label>Prioridade<select id="priority"><option value="verde">🟢 Estável</option><option value="amarelo">🟡 Atenção</option><option value="vermelho">🔴 Prioridade</option></select></label>
+<label>Diagnósticos<textarea id="diagnoses"></textarea></label>
+<label>Medicações atuais<textarea id="meds"></textarea></label>
+<label>Foco da semana<textarea id="focus"></textarea></label>
+<label>Exames/encaminhamentos pendentes<textarea id="pending"></textarea></label>
+<label>Plano atual<textarea id="plan"></textarea></label>
+<label>Próxima segunda — verificar<textarea id="next"></textarea></label>
+<label>Cognição/humor<textarea id="cognition"></textarea></label>
+<label>Mobilidade/marcha<textarea id="mobility"></textarea></label>
+<label>Pele/feridas<textarea id="skin"></textarea></label>
+</div>
+<div class="checks"><label><input id="mental" type="checkbox"> 🧠 Saúde mental</label><label><input id="wound" type="checkbox"> 🩹 Ferida</label><label><input id="fall" type="checkbox"> 🚶 Queda/marcha</label><label><input id="sleep" type="checkbox"> 😴 Sono</label><label><input id="medChange" type="checkbox"> 💊 Medicação alterada</label></div>
+<div class="visitEdit">
+<fieldset><legend>Visita 1</legend><label>Data<input id="v1date" type="date"></label><label>Evolução<textarea id="v1note"></textarea></label><label>Status<select id="v1status"><option value="">—</option><option>Melhor</option><option>Igual</option><option>Pior</option></select></label></fieldset>
+<fieldset><legend>Visita 2</legend><label>Data<input id="v2date" type="date"></label><label>Evolução<textarea id="v2note"></textarea></label><label>Status<select id="v2status"><option value="">—</option><option>Melhor</option><option>Igual</option><option>Pior</option></select></label></fieldset>
+<fieldset><legend>Visita 3</legend><label>Data<input id="v3date" type="date"></label><label>Evolução<textarea id="v3note"></textarea></label><label>Status<select id="v3status"><option value="">—</option><option>Melhor</option><option>Igual</option><option>Pior</option></select></label></fieldset>
+</div>
+<div class="end"><button type="button" id="delete" class="danger">Excluir</button><div><button type="button" id="cancel">Cancelar</button> <button class="primary" type="submit">Salvar</button></div></div>
+</form></dialog>
+
+<script>
+const KEY="asiloGuaraciPatientsV2";let patients=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem("asiloGuaraciPatientsV1")||"[]");
+const $=id=>document.getElementById(id);const fields=["name","dob","priority","diagnoses","meds","focus","pending","plan","next","cognition","mobility","skin","v1date","v1note","v1status","v2date","v2note","v2status","v3date","v3note","v3status","mental","wound","fall","sleep","medChange"];
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function val(v){return v&&String(v).trim()?v:"—"}function fmt(d){return d?d.split("-").reverse().join("/"):"Sem data"}function save(){localStorage.setItem(KEY,JSON.stringify(patients));render()}
+function tags(p){let x=p.priority==="vermelho"?'<span class="badge red">🔴 Prioridade</span>':p.priority==="amarelo"?'<span class="badge yellow">🟡 Atenção</span>':'<span class="badge green">🟢 Estável</span>';if(p.mental)x+='<span class="badge">🧠 Saúde mental</span>';if(p.wound)x+='<span class="badge">🩹 Ferida</span>';return x}
+function visits(p){return [1,2,3].map(i=>'<div class="visit"><b>Visita '+i+'</b><small>'+fmt(p["v"+i+"date"])+' • '+esc(val(p["v"+i+"status"]))+'</small><p>'+esc(val(p["v"+i+"note"]))+'</p></div>').join("")}
+function card(p){return '<article class="patient card"><div class="phead"><div><div class="badges">'+tags(p)+'</div><h2>'+esc(p.name)+'</h2><p class="meta">'+(p.dob?fmt(p.dob):"Nascimento não informado")+'</p></div><button class="edit" onclick="editPatient(\''+p.id+'\')">✏️ Editar</button></div><div class="summary"><div class="box"><b>🎯 Foco da semana</b><p>'+esc(val(p.focus))+'</p></div><div class="box"><b>💊 Medicações</b><p>'+esc(val(p.meds))+'</p></div></div><div class="next"><b>➡️ Próxima segunda</b><p>'+esc(val(p.next))+'</p></div></article>'}
+function render(){const q=$("search").value.toLowerCase(),list=patients.filter(p=>p.name.toLowerCase().includes(q));$("patients").innerHTML=list.map(card).join("");$("todayList").innerHTML=list.map(p=>'<article class="patient card"><div class="phead"><div><div class="badges">'+tags(p)+'</div><h2>'+esc(p.name)+'</h2></div><button class="edit" onclick="editPatient(\''+p.id+'\')">✏️ Editar</button></div><div class="summary"><div class="box"><b>🎯 Ver hoje</b><p>'+esc(val(p.focus))+'</p></div><div class="box"><b>➡️ Checar antes de sair</b><p>'+esc(val(p.next))+'</p></div></div></article>').join("");$("evolutionList").innerHTML=list.map(p=>'<article class="patient card"><h2>'+esc(p.name)+'</h2><div class="visits">'+visits(p)+'</div></article>').join("");$("pendingList").innerHTML=list.map(p=>'<article class="patient card"><h2>'+esc(p.name)+'</h2><div class="summary"><div class="box"><b>🧪 Exames/encaminhamentos</b><p>'+esc(val(p.pending))+'</p></div><div class="box"><b>📌 Plano</b><p>'+esc(val(p.plan))+'</p></div></div><div class="next"><b>➡️ Próxima segunda</b><p>'+esc(val(p.next))+'</p></div></article>').join("");$("empty").style.display=patients.length?"none":"block";$("nPatients").textContent=patients.length;$("nPriority").textContent=patients.filter(p=>p.priority==="vermelho").length;$("nPending").textContent=patients.filter(p=>p.pending&&p.pending.trim()).length}
+function openForm(p={}){$("title").textContent=p.id?"Editar paciente":"Novo paciente";$("id").value=p.id||"";fields.forEach(f=>{const e=$(f);if(e.type==="checkbox")e.checked=!!p[f];else e.value=p[f]||""});$("delete").style.visibility=p.id?"visible":"hidden";$("dlg").showModal()}
+window.editPatient=id=>openForm(patients.find(p=>p.id===id));$("add").onclick=$("firstAdd").onclick=()=>openForm();$("close").onclick=$("cancel").onclick=()=>$("dlg").close();$("print").onclick=()=>print();$("search").oninput=render;
+document.querySelectorAll(".quick button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));$(b.dataset.view+"View").classList.add("active")}));
+$("form").onsubmit=e=>{e.preventDefault();const id=$("id").value||crypto.randomUUID();const p={id};fields.forEach(f=>{const el=$(f);p[f]=el.type==="checkbox"?el.checked:el.value.trim()});const i=patients.findIndex(x=>x.id===id);if(i>=0)patients[i]=p;else patients.push(p);save();$("dlg").close()};
+$("delete").onclick=()=>{const id=$("id").value;if(id&&confirm("Excluir esta ficha deste navegador?")){patients=patients.filter(p=>p.id!==id);save();$("dlg").close()}};
+$("export").onclick=()=>{const b=new Blob([JSON.stringify(patients,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-asilo-guaraci.json";a.click();URL.revokeObjectURL(a.href)};
+$("import").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const x=JSON.parse(r.result);if(!Array.isArray(x))throw 0;patients=x;save();alert("Backup restaurado.")}catch{alert("Arquivo inválido.")}};r.readAsText(f)};
+render();
+</script>
+</body></html>
